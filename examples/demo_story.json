@@ -1,0 +1,46 @@
+{
+  "title": "深夜来电",
+  "model": "speech-2.8-hd",
+  "language_boost": "Chinese",
+  "audio": {
+    "sample_rate": 32000,
+    "bitrate": 128000,
+    "format": "mp3",
+    "channel": 1
+  },
+  "characters": {
+    "narrator": {
+      "name": "旁白",
+      "voice_id": "Chinese (Mandarin)_Lyrical_Voice",
+      "speed": 0.95,
+      "vol": 1,
+      "pitch": 0,
+      "emotion": "calm"
+    },
+    "xiaoyu": {
+      "name": "小雨",
+      "voice_id": "Chinese (Mandarin)_HK_Flight_Attendant",
+      "speed": 1,
+      "vol": 1,
+      "pitch": 0
+    }
+  },
+  "lines": [
+    {
+      "speaker": "narrator",
+      "text": "凌晨两点，小雨接到了一个没有号码的电话。",
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "xiaoyu",
+      "text": "喂？你是谁？",
+      "emotion": "fearful",
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "narrator",
+      "text": "电话那头沉默了几秒，只传来一声很轻的叹息。(sighs)",
+      "pause_after_ms": 600
+    }
+  ]
+}
