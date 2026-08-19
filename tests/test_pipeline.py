@@ -61,6 +61,29 @@ class PipelineTests(unittest.TestCase):
     def test_preserves_chinese_script_name_in_default_output(self) -> None:
         self.assertEqual(default_output_dir(Path("深夜来电.json")), Path("outputs/深夜来电"))
 
+    def test_dry_run_includes_sound_effect_request(self) -> None:
+        story = StoryScript.from_dict(
+            {
+                "title": "雨夜",
+                "characters": {"a": {"name": "角色甲", "voice_id": "voice-a"}},
+                "lines": [{"speaker": "a", "text": "下雨了。"}],
+                "sound_effects": [
+                    {
+                        "id": "rain",
+                        "prompt": "Steady rain, no music",
+                        "duration_seconds": 5,
+                        "start_at_line": 1,
+                    }
+                ],
+            }
+        )
+        with tempfile.TemporaryDirectory() as temporary:
+            output = Path(temporary)
+            generate_story(story, None, output, dry_run=True, progress=lambda _: None)
+            plan = json.loads((output / "plan.json").read_text(encoding="utf-8"))
+        self.assertEqual(plan["sound_effects"][0]["request"]["text"], "Steady rain, no music")
+        self.assertEqual(plan["sound_effects"][0]["request"]["duration_seconds"], 5)
+
 
 if __name__ == "__main__":
     unittest.main()

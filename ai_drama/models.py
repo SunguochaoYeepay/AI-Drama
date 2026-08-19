@@ -157,6 +157,68 @@ class AudioSettings:
 
 
 @dataclass(frozen=True)
+class SoundEffect:
+    id: str
+    prompt: str
+    start_ms: int | None = None
+    start_at_line: int | None = None
+    offset_ms: int = 0
+    duration_seconds: float | None = None
+    prompt_influence: float = 0.3
+    loop: bool = False
+    until_end: bool = False
+    volume_db: float = -16.0
+    fade_in_ms: int = 0
+    fade_out_ms: int = 0
+    model_id: str = "eleven_text_to_sound_v2"
+
+    @classmethod
+    def from_dict(cls, data: dict[str, Any], index: int) -> SoundEffect:
+        location = f"sound_effects[{index}]"
+        effect = cls(
+            id=str(data.get("id", "")).strip(),
+            prompt=str(data.get("prompt", "")).strip(),
+            start_ms=_optional_int(data.get("start_ms")),
+            start_at_line=_optional_int(data.get("start_at_line")),
+            offset_ms=int(data.get("offset_ms", 0)),
+            duration_seconds=_optional_float(data.get("duration_seconds")),
+            prompt_influence=float(data.get("prompt_influence", 0.3)),
+            loop=bool(data.get("loop", False)),
+            until_end=bool(data.get("until_end", False)),
+            volume_db=float(data.get("volume_db", -16)),
+            fade_in_ms=int(data.get("fade_in_ms", 0)),
+            fade_out_ms=int(data.get("fade_out_ms", 0)),
+            model_id=str(data.get("model_id", "eleven_text_to_sound_v2")).strip(),
+        )
+        effect.validate(location)
+        return effect
+
+    def validate(self, location: str) -> None:
+        if not self.id:
+            raise ScriptValidationError(f"{location}.id 不能为空")
+        if not self.prompt:
+            raise ScriptValidationError(f"{location}.prompt 不能为空")
+        if self.start_ms is not None and self.start_at_line is not None:
+            raise ScriptValidationError(f"{location} 不能同时设置 start_ms 和 start_at_line")
+        if self.start_ms is not None and self.start_ms < 0:
+            raise ScriptValidationError(f"{location}.start_ms 不能小于 0")
+        if self.start_at_line is not None and self.start_at_line < 1:
+            raise ScriptValidationError(f"{location}.start_at_line 必须从 1 开始")
+        if self.duration_seconds is not None and not 0.5 <= self.duration_seconds <= 30:
+            raise ScriptValidationError(f"{location}.duration_seconds 必须在 0.5 到 30 之间")
+        if not 0 <= self.prompt_influence <= 1:
+            raise ScriptValidationError(f"{location}.prompt_influence 必须在 0 到 1 之间")
+        if not -60 <= self.volume_db <= 6:
+            raise ScriptValidationError(f"{location}.volume_db 必须在 -60 到 6 之间")
+        if self.fade_in_ms < 0 or self.fade_out_ms < 0:
+            raise ScriptValidationError(f"{location} 的淡入淡出时间不能小于 0")
+        if self.until_end and not self.loop:
+            raise ScriptValidationError(f"{location}.until_end=true 时必须同时设置 loop=true")
+        if not self.model_id:
+            raise ScriptValidationError(f"{location}.model_id 不能为空")
+
+
+@dataclass(frozen=True)
 class StoryScript:
     title: str
     model: str
@@ -164,6 +226,7 @@ class StoryScript:
     lines: tuple[Line, ...]
     audio: AudioSettings = field(default_factory=AudioSettings)
     language_boost: str = "Chinese"
+    sound_effects: tuple[SoundEffect, ...] = ()
 
     @classmethod
     def from_dict(cls, data: dict[str, Any]) -> StoryScript:
@@ -199,6 +262,23 @@ class StoryScript:
                 )
             characters[line.speaker].voice.with_overrides(line).validate(f"lines[{index}]")
 
+        raw_effects = data.get("sound_effects", [])
+        if not isinstance(raw_effects, list):
+            raise ScriptValidationError("sound_effects 必须是数组")
+        if not all(isinstance(item, dict) for item in raw_effects):
+            raise ScriptValidationError("sound_effects 中的每个音效都必须是对象")
+        sound_effects = tuple(
+            SoundEffect.from_dict(item, index) for index, item in enumerate(raw_effects)
+        )
+        effect_ids = [effect.id for effect in sound_effects]
+        if len(set(effect_ids)) != len(effect_ids):
+            raise ScriptValidationError("sound_effects.id 不能重复")
+        for index, effect in enumerate(sound_effects):
+            if effect.start_at_line is not None and effect.start_at_line > len(lines):
+                raise ScriptValidationError(
+                    f"sound_effects[{index}].start_at_line 超出台词数量"
+                )
+
         return cls(
             title=title,
             model=model,
@@ -206,6 +286,7 @@ class StoryScript:
             lines=lines,
             audio=AudioSettings.from_dict(data.get("audio")),
             language_boost=str(data.get("language_boost", "Chinese")),
+            sound_effects=sound_effects,
         )
 
     @classmethod

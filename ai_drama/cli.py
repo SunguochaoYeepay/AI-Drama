@@ -6,6 +6,7 @@ from pathlib import Path
 import sys
 
 from ai_drama.audio import AudioToolError
+from ai_drama.elevenlabs import ElevenLabsClient, ElevenLabsError
 from ai_drama.minimax import DEFAULT_ENDPOINT, MiniMaxClient, MiniMaxError
 from ai_drama.models import ScriptValidationError, StoryScript
 from ai_drama.pipeline import default_output_dir, generate_story
@@ -36,15 +37,30 @@ def main(argv: list[str] | None = None) -> int:
                 api_key=os.environ.get("MINIMAX_API_KEY", ""),
                 endpoint=args.endpoint,
             )
+        sound_client = None
+        if story.sound_effects and not args.dry_run:
+            sound_client = ElevenLabsClient(
+                api_key=(
+                    os.environ.get("ELEVENLABS_API_KEY")
+                    or os.environ.get("ElevenLabs_API_KEY", "")
+                )
+            )
         generate_story(
             story,
             client,
             output_dir,
+            sound_client=sound_client,
             dry_run=args.dry_run,
             merge=not args.no_merge,
         )
         return 0
-    except (ScriptValidationError, MiniMaxError, AudioToolError, ValueError) as exc:
+    except (
+        ScriptValidationError,
+        MiniMaxError,
+        ElevenLabsError,
+        AudioToolError,
+        ValueError,
+    ) as exc:
         print(f"错误：{exc}", file=sys.stderr)
         return 1
 
@@ -58,7 +74,11 @@ def _load_local_env(path: Path) -> None:
             continue
         key, value = line.split("=", 1)
         key = key.strip()
-        if key != "MINIMAX_API_KEY" or key in os.environ:
+        if key not in {
+            "MINIMAX_API_KEY",
+            "ELEVENLABS_API_KEY",
+            "ElevenLabs_API_KEY",
+        } or key in os.environ:
             continue
         value = value.strip()
         if len(value) >= 2 and value[0] == value[-1] and value[0] in {"'", '"'}:

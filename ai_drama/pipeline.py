@@ -8,9 +8,19 @@ from pathlib import Path
 import re
 from typing import Any, Callable
 
-from ai_drama.audio import AudioToolError, MERGE_FORMATS, build_timeline, merge_audio, write_srt
+from ai_drama.audio import (
+    AudioToolError,
+    MERGE_FORMATS,
+    PlacedEffect,
+    TimedLine,
+    build_timeline,
+    merge_audio,
+    mix_sound_effects,
+    write_srt,
+)
+from ai_drama.elevenlabs import ElevenLabsClient, build_sound_effect_payload
 from ai_drama.minimax import MiniMaxClient, build_payload, save_audio
-from ai_drama.models import StoryScript
+from ai_drama.models import SoundEffect, StoryScript
 
 
 Progress = Callable[[str], None]
@@ -21,12 +31,15 @@ def generate_story(
     client: MiniMaxClient | None,
     output_dir: Path,
     *,
+    sound_client: ElevenLabsClient | None = None,
     dry_run: bool = False,
     merge: bool = True,
     progress: Progress = print,
 ) -> dict[str, Any]:
     if merge and story.audio.format not in MERGE_FORMATS:
         raise AudioToolError("基础版合并仅支持 mp3、wav 或 flac；可改用 --no-merge")
+    if story.sound_effects and not merge and not dry_run:
+        raise AudioToolError("环境音需要先合并对白，不能与 --no-merge 同时使用")
     output_dir.mkdir(parents=True, exist_ok=True)
     segment_dir = output_dir / "segments"
     segment_dir.mkdir(exist_ok=True)
@@ -103,6 +116,21 @@ def generate_story(
         result_manifest["subtitle_file"] = subtitle_path.name
         result_manifest["timeline"] = [asdict(item) for item in timeline]
         progress(f"完整对话已生成：{dialogue_path}")
+        if story.sound_effects:
+            if sound_client is None:
+                raise ValueError("故事包含环境音，但没有提供 ElevenLabsClient")
+            effect_records, placed_effects = _generate_sound_effects(
+                story,
+                sound_client,
+                output_dir,
+                timeline,
+                progress,
+            )
+            final_mix_path = output_dir / f"final_mix.{story.audio.format}"
+            mix_sound_effects(dialogue_path, placed_effects, final_mix_path, story.audio)
+            result_manifest["sound_effects"] = effect_records
+            result_manifest["final_mix_file"] = final_mix_path.name
+            progress(f"环境音混音已生成：{final_mix_path}")
 
     _write_json(output_dir / "manifest.json", result_manifest)
     return result_manifest
@@ -144,7 +172,85 @@ def _build_plan(story: StoryScript) -> dict[str, Any]:
             for key, character in story.characters.items()
         },
         "lines": lines,
+        "sound_effects": [
+            {
+                **asdict(effect),
+                "request": build_sound_effect_payload(effect),
+            }
+            for effect in story.sound_effects
+        ],
     }
+
+
+def _generate_sound_effects(
+    story: StoryScript,
+    client: ElevenLabsClient,
+    output_dir: Path,
+    timeline: list[TimedLine],
+    progress: Progress,
+) -> tuple[list[dict[str, Any]], list[PlacedEffect]]:
+    effect_dir = output_dir / "sound_effects"
+    effect_dir.mkdir(exist_ok=True)
+    records: list[dict[str, Any]] = []
+    placed: list[PlacedEffect] = []
+    for index, effect in enumerate(story.sound_effects, start=1):
+        payload = build_sound_effect_payload(effect)
+        request_hash = _request_hash(payload)
+        audio_path = effect_dir / f"{index:03d}_{_safe_name(effect.id)}.mp3"
+        metadata_path = audio_path.with_suffix(".mp3.json")
+        metadata = _read_json(metadata_path)
+        if (
+            audio_path.exists()
+            and audio_path.stat().st_size > 0
+            and metadata
+            and metadata.get("request_hash") == request_hash
+        ):
+            progress(f"[环境音 {index}/{len(story.sound_effects)}] 复用 {effect.id}")
+            record = metadata
+        else:
+            progress(
+                f"[环境音 {index}/{len(story.sound_effects)}] 生成 {effect.id}："
+                f"{effect.prompt[:36]}"
+            )
+            result = client.generate(payload)
+            save_audio(audio_path, result.audio)
+            record = {
+                "id": effect.id,
+                "prompt": effect.prompt,
+                "audio_file": str(audio_path.relative_to(output_dir)),
+                "request_hash": request_hash,
+            }
+            _write_json(metadata_path, record)
+
+        start_ms = _resolve_effect_start(effect, timeline)
+        record = {
+            **record,
+            "start_ms": start_ms,
+            "volume_db": effect.volume_db,
+            "loop": effect.loop,
+            "until_end": effect.until_end,
+        }
+        records.append(record)
+        placed.append(
+            PlacedEffect(
+                path=audio_path,
+                start_ms=start_ms,
+                volume_db=effect.volume_db,
+                loop=effect.loop,
+                until_end=effect.until_end,
+                fade_in_ms=effect.fade_in_ms,
+                fade_out_ms=effect.fade_out_ms,
+            )
+        )
+    return records, placed
+
+
+def _resolve_effect_start(effect: SoundEffect, timeline: list[TimedLine]) -> int:
+    if effect.start_at_line is not None:
+        base = timeline[effect.start_at_line - 1].start_ms
+    else:
+        base = effect.start_ms or 0
+    return max(0, base + effect.offset_ms)
 
 
 def _safe_name(value: str) -> str:

@@ -25,6 +25,29 @@
       "pitch": 0
     }
   },
+  "sound_effects": [
+    {
+      "id": "rainy_night",
+      "prompt": "Steady nighttime rain against apartment windows, distant soft thunder, natural ambience, no music, no voices, seamless loop",
+      "start_ms": 0,
+      "duration_seconds": 10,
+      "prompt_influence": 0.65,
+      "loop": true,
+      "until_end": true,
+      "volume_db": -23,
+      "fade_in_ms": 500,
+      "fade_out_ms": 800
+    },
+    {
+      "id": "phone_ring",
+      "prompt": "A smartphone vibrating and ringing twice on a wooden bedside table, close-up dry sound, no music, no voices",
+      "start_ms": 0,
+      "duration_seconds": 4,
+      "prompt_influence": 0.7,
+      "volume_db": -10,
+      "fade_out_ms": 250
+    }
+  ],
   "lines": [
     {
       "speaker": "narrator",

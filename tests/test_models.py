@@ -41,6 +41,29 @@ class StoryScriptTests(unittest.TestCase):
         with self.assertRaisesRegex(ScriptValidationError, "audio 必须是对象"):
             StoryScript.from_dict(data)
 
+    def test_loads_sound_effect(self) -> None:
+        data = valid_story()
+        data["sound_effects"] = [
+            {
+                "id": "rain",
+                "prompt": "Steady rain, no music",
+                "start_at_line": 1,
+                "duration_seconds": 8,
+                "loop": True,
+                "until_end": True,
+            }
+        ]
+        story = StoryScript.from_dict(data)
+        self.assertEqual(story.sound_effects[0].id, "rain")
+
+    def test_rejects_until_end_without_loop(self) -> None:
+        data = valid_story()
+        data["sound_effects"] = [
+            {"id": "rain", "prompt": "rain", "until_end": True}
+        ]
+        with self.assertRaisesRegex(ScriptValidationError, "loop=true"):
+            StoryScript.from_dict(data)
+
 
 if __name__ == "__main__":
     unittest.main()

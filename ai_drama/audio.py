@@ -24,6 +24,17 @@ class TimedLine:
     end_ms: int
 
 
+@dataclass(frozen=True)
+class PlacedEffect:
+    path: Path
+    start_ms: int
+    volume_db: float
+    loop: bool
+    until_end: bool
+    fade_in_ms: int
+    fade_out_ms: int
+
+
 def require_ffmpeg() -> None:
     if not shutil.which("ffmpeg") or not shutil.which("ffprobe"):
         raise AudioToolError("需要先安装 FFmpeg，才能合并音频和生成字幕")
@@ -137,6 +148,74 @@ def build_timeline(
         timeline.append(TimedLine(index, speaker, text, cursor, end))
         cursor = end + pause
     return timeline
+
+
+def mix_sound_effects(
+    dialogue_path: Path,
+    effects: list[PlacedEffect],
+    destination: Path,
+    audio: AudioSettings,
+) -> None:
+    if not effects:
+        raise AudioToolError("至少需要一个环境音才能执行混音")
+    require_ffmpeg()
+    base_duration_ms = duration_ms(dialogue_path)
+    command = ["ffmpeg", "-v", "error", "-i", str(dialogue_path)]
+    active_effects: list[tuple[int, PlacedEffect, int]] = []
+    for effect in effects:
+        available_ms = base_duration_ms - effect.start_ms
+        if available_ms <= 0:
+            continue
+        if effect.loop:
+            command.extend(["-stream_loop", "-1"])
+        command.extend(["-i", str(effect.path)])
+        source_duration_ms = duration_ms(effect.path)
+        play_duration_ms = available_ms if effect.until_end else min(source_duration_ms, available_ms)
+        active_effects.append((len(active_effects) + 1, effect, play_duration_ms))
+
+    if not active_effects:
+        raise AudioToolError("所有环境音都位于对白结束之后，无法混音")
+
+    filters = ["[0:a]anull[dialogue]"]
+    labels = ["[dialogue]"]
+    for input_index, effect, play_duration_ms in active_effects:
+        play_seconds = play_duration_ms / 1000
+        chain = (
+            f"[{input_index}:a]volume={effect.volume_db}dB,"
+            f"atrim=duration={play_seconds:.3f},asetpts=PTS-STARTPTS"
+        )
+        fade_in_seconds = min(effect.fade_in_ms, play_duration_ms) / 1000
+        fade_out_seconds = min(effect.fade_out_ms, play_duration_ms) / 1000
+        if fade_in_seconds > 0:
+            chain += f",afade=t=in:st=0:d={fade_in_seconds:.3f}"
+        if fade_out_seconds > 0:
+            fade_out_start = max(0.0, play_seconds - fade_out_seconds)
+            chain += f",afade=t=out:st={fade_out_start:.3f}:d={fade_out_seconds:.3f}"
+        chain += f",adelay={effect.start_ms}:all=1[sfx{input_index}]"
+        filters.append(chain)
+        labels.append(f"[sfx{input_index}]")
+
+    filters.append(
+        f"{''.join(labels)}amix=inputs={len(labels)}:duration=first:"
+        "normalize=0:dropout_transition=0,alimiter=limit=0.95[mix]"
+    )
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    command.extend(
+        [
+            "-filter_complex",
+            ";".join(filters),
+            "-map",
+            "[mix]",
+            *_codec_args(audio),
+            "-ar",
+            str(audio.sample_rate),
+            "-ac",
+            str(audio.channel),
+            "-y",
+            str(destination),
+        ]
+    )
+    _run(command)
 
 
 def write_srt(path: Path, timeline: list[TimedLine]) -> None:
