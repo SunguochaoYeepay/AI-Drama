@@ -1,15 +1,20 @@
 # AI Drama
 
-把多角色故事脚本转换为可用于短视频制作的剧情音频。MiniMax Speech 2.8 负责角色语音，ElevenLabs Sound Effects 负责环境音和拟音，最后通过 FFmpeg 完成时间轴混音并输出字幕。
+把多角色故事脚本转换为可用于短视频制作的剧情音频和基础视频镜头。MiniMax Speech 2.8 负责角色语音，ElevenLabs Sound Effects 负责环境音和拟音，Qwen Image 负责人物与关键帧，MiniMax H3 负责短视频镜头。
 
 ## AI Skill
 
-仓库内置了 [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md) Skill，用来指导其他 AI 完成从故事改编到成品音频的完整流程。它固化了角色拆分、MiniMax 音色查询、逐句情绪设计、ElevenLabs 环境音、缓存复用和最终质量检查规则。
+仓库内置两个可复用 Skill：
+
+- [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md)：从故事改编到多角色语音、环境音、字幕和最终混音。
+- [`generate-ai-drama-video`](SKILL/generate-ai-drama-video/SKILL.md)：从已确认的故事和音频生成角色定妆、Qwen 关键帧和 MiniMax H3 测试镜头。
 
 支持 Skills 的 AI 可以直接使用：
 
 ```text
 使用 $generate-ai-drama-audio，把这个故事制作成多角色剧情音频：……
+
+使用 $generate-ai-drama-video，按已确认的故事和音频生成角色关键帧，并跑一个 H3 4 步测试镜头。
 ```
 
 如果当前 AI 不会自动发现仓库中的 Skill，请先让它完整读取 `SKILL/generate-ai-drama-audio/SKILL.md`，再提供故事。Skill 不包含 API Key；密钥仍只保存在本地 `.env`。
@@ -27,6 +32,36 @@
 - 两种对白方案共享环境音缓存，不会因为对比重复生成相同音效
 - 自动合并完整音频并根据实际时长生成 SRT 字幕
 - 保存请求计划、接口追踪编号和生成清单，方便排查失败请求
+- 使用官方 Qwen Image Lightning 4 步工作流生成 1344×768 关键帧
+- 使用 MiniMax H3 官方提示词结构和 4 步 768p Turbo 工作流生成约 5 秒测试镜头
+- 调用 ComfyUI `/object_info` 检查节点，通过 `/prompt` 排队并自动下载图片或 MP4
+
+## 视频阶段
+
+视频配置示例位于 [`examples/family_money_argument_video.json`](examples/family_money_argument_video.json)。生成媒体仍放在已忽略的 `outputs/`，仓库只提交可复用配置、工作流和代码。
+
+家里机器如果前端运行在 `8080`，原始 ComfyUI API 通常仍是 `8188`。先生成并检查人物定妆图和场景首帧：
+
+```bash
+python3 -m ai_drama video-keyframe \
+  examples/family_money_argument_video.json character_lineup \
+  --comfyui-url http://100.82.50.123:8188
+
+python3 -m ai_drama video-keyframe \
+  examples/family_money_argument_video.json opening_conflict \
+  --comfyui-url http://100.82.50.123:8188
+```
+
+关键帧确认后，用它跑首个 H3 I2VA 测试镜头：
+
+```bash
+python3 -m ai_drama video-h3 \
+  examples/family_money_argument_video.json opening_conflict_test \
+  --image outputs/family_money_argument_video/video/keyframes/opening_conflict.png \
+  --comfyui-url http://100.82.50.123:8188
+```
+
+当前 4 步模板使用 H3 Turbo 官方推荐值：1344×768、124 帧、24fps、视频 shift 6、音频 shift 3。完整视频制作应先确认人物与代表性关键帧，再按字幕时间拆分镜头，不要直接批量生成整条故事。
 
 ## 开始使用
 
