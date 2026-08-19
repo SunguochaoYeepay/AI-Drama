@@ -2,6 +2,18 @@
 
 把多角色故事脚本转换为可用于短视频制作的剧情音频。MiniMax Speech 2.8 负责角色语音，ElevenLabs Sound Effects 负责环境音和拟音，最后通过 FFmpeg 完成时间轴混音并输出字幕。
 
+## AI Skill
+
+仓库内置了 [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md) Skill，用来指导其他 AI 完成从故事改编到成品音频的完整流程。它固化了角色拆分、MiniMax 音色查询、逐句情绪设计、ElevenLabs 环境音、缓存复用和最终质量检查规则。
+
+支持 Skills 的 AI 可以直接使用：
+
+```text
+使用 $generate-ai-drama-audio，把这个故事制作成多角色剧情音频：……
+```
+
+如果当前 AI 不会自动发现仓库中的 Skill，请先让它完整读取 `SKILL/generate-ai-drama-audio/SKILL.md`，再提供故事。Skill 不包含 API Key；密钥仍只保存在本地 `.env`。
+
 ## 当前能力
 
 - 支持 `speech-2.8-hd` 和 `speech-2.8-turbo`

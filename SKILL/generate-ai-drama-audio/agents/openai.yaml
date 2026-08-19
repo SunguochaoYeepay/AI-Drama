@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Drama Audio"
+  short_description: "Generate expressive Chinese multi-role drama audio"
+  default_prompt: "Use $generate-ai-drama-audio to turn this story into expressive multi-character audio with environmental sound."
