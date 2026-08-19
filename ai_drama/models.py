@@ -77,13 +77,18 @@ class Voice:
 class Character:
     name: str
     voice: Voice
+    elevenlabs_voice_id: str | None = None
 
     @classmethod
     def from_dict(cls, key: str, data: dict[str, Any]) -> Character:
         name = str(data.get("name", key)).strip()
         if not name:
             raise ScriptValidationError(f"characters.{key}.name 不能为空")
-        return cls(name=name, voice=Voice.from_dict(data, f"characters.{key}"))
+        return cls(
+            name=name,
+            voice=Voice.from_dict(data, f"characters.{key}"),
+            elevenlabs_voice_id=_optional_text(data.get("elevenlabs_voice_id")),
+        )
 
 
 @dataclass(frozen=True)

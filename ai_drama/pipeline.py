@@ -6,6 +6,7 @@ import hashlib
 import json
 from pathlib import Path
 import re
+import shutil
 from typing import Any, Callable
 
 from ai_drama.audio import (
@@ -18,7 +19,12 @@ from ai_drama.audio import (
     mix_sound_effects,
     write_srt,
 )
-from ai_drama.elevenlabs import ElevenLabsClient, build_sound_effect_payload
+from ai_drama.elevenlabs import (
+    DialogueResult,
+    ElevenLabsClient,
+    build_dialogue_payload,
+    build_sound_effect_payload,
+)
 from ai_drama.minimax import MiniMaxClient, build_payload, save_audio
 from ai_drama.models import SoundEffect, StoryScript
 
@@ -136,8 +142,95 @@ def generate_story(
     return result_manifest
 
 
-def default_output_dir(script_path: Path) -> Path:
-    return Path("outputs") / _safe_name(script_path.stem)
+def generate_elevenlabs_story(
+    story: StoryScript,
+    client: ElevenLabsClient | None,
+    output_dir: Path,
+    *,
+    dry_run: bool = False,
+    progress: Progress = print,
+) -> dict[str, Any]:
+    if story.audio.format not in MERGE_FORMATS:
+        raise AudioToolError("ElevenLabs 对话混音仅支持 mp3、wav 或 flac")
+    output_dir.mkdir(parents=True, exist_ok=True)
+    plan = _build_elevenlabs_plan(story)
+    _write_json(output_dir / "plan.json", plan)
+    if dry_run:
+        progress(
+            f"ElevenLabs 脚本检查通过：{len(story.characters)} 个角色，"
+            f"{len(story.lines)} 句台词"
+        )
+        return {"dry_run": True, "line_count": len(story.lines), "output_dir": str(output_dir)}
+    if client is None:
+        raise ValueError("正式生成必须提供 ElevenLabsClient")
+
+    dialogue_path = output_dir / "dialogue.mp3"
+    metadata_path = output_dir / "dialogue.mp3.json"
+    payload = plan["request"]
+    request_hash = _request_hash(payload)
+    metadata = _read_json(metadata_path)
+    if (
+        dialogue_path.exists()
+        and dialogue_path.stat().st_size > 0
+        and metadata
+        and metadata.get("request_hash") == request_hash
+    ):
+        progress("复用 ElevenLabs 已有多角色对话")
+        result = DialogueResult(
+            audio=b"",
+            voice_segments=metadata.get("voice_segments", []),
+            alignment=metadata.get("alignment"),
+            normalized_alignment=metadata.get("normalized_alignment"),
+        )
+        cached = True
+    else:
+        progress("使用 ElevenLabs eleven_v3 生成整段多角色对话")
+        result = client.generate_dialogue(payload)
+        save_audio(dialogue_path, result.audio)
+        metadata = {
+            "request_hash": request_hash,
+            "voice_segments": result.voice_segments,
+            "alignment": result.alignment,
+            "normalized_alignment": result.normalized_alignment,
+        }
+        _write_json(metadata_path, metadata)
+        cached = False
+
+    timeline = _elevenlabs_timeline(story, result.voice_segments)
+    subtitle_path = output_dir / "dialogue.srt"
+    write_srt(subtitle_path, timeline)
+    manifest: dict[str, Any] = {
+        "title": story.title,
+        "provider": "elevenlabs",
+        "model": "eleven_v3",
+        "created_at": datetime.now(timezone.utc).isoformat(),
+        "cached_dialogue": cached,
+        "dialogue_file": dialogue_path.name,
+        "subtitle_file": subtitle_path.name,
+        "timeline": [asdict(item) for item in timeline],
+    }
+    if story.sound_effects:
+        effect_records, placed_effects = _generate_sound_effects(
+            story,
+            client,
+            output_dir,
+            timeline,
+            progress,
+        )
+        final_mix_path = output_dir / f"final_mix.{story.audio.format}"
+        mix_sound_effects(dialogue_path, placed_effects, final_mix_path, story.audio)
+        manifest["sound_effects"] = effect_records
+        manifest["final_mix_file"] = final_mix_path.name
+        progress(f"ElevenLabs 对话环境音混合版已生成：{final_mix_path}")
+    _write_json(output_dir / "manifest.json", manifest)
+    return manifest
+
+
+def default_output_dir(script_path: Path, provider: str = "minimax") -> Path:
+    name = _safe_name(script_path.stem)
+    if provider == "elevenlabs":
+        name += "_elevenlabs"
+    return Path("outputs") / name
 
 
 def _build_plan(story: StoryScript) -> dict[str, Any]:
@@ -182,6 +275,79 @@ def _build_plan(story: StoryScript) -> dict[str, Any]:
     }
 
 
+def _build_elevenlabs_plan(story: StoryScript) -> dict[str, Any]:
+    inputs: list[dict[str, str]] = []
+    lines: list[dict[str, Any]] = []
+    for index, line in enumerate(story.lines, start=1):
+        character = story.characters[line.speaker]
+        if not character.elevenlabs_voice_id:
+            raise ValueError(
+                f"角色 {character.name} 缺少 elevenlabs_voice_id，无法生成 ElevenLabs 对话"
+            )
+        text = _elevenlabs_text(line.text, line.emotion or character.voice.emotion)
+        item = {"text": text, "voice_id": character.elevenlabs_voice_id}
+        inputs.append(item)
+        lines.append(
+            {
+                "index": index,
+                "speaker": line.speaker,
+                "speaker_name": character.name,
+                "source_text": line.text,
+                "dialogue_input": item,
+            }
+        )
+    if sum(len(item["text"]) for item in inputs) > 2_000:
+        raise ValueError("ElevenLabs Text to Dialogue 单次请求台词总长度不能超过 2000 字符")
+    return {
+        "title": story.title,
+        "provider": "elevenlabs",
+        "model": "eleven_v3",
+        "lines": lines,
+        "request": build_dialogue_payload(inputs),
+        "sound_effects": [
+            {**asdict(effect), "request": build_sound_effect_payload(effect)}
+            for effect in story.sound_effects
+        ],
+    }
+
+
+def _elevenlabs_timeline(
+    story: StoryScript,
+    voice_segments: list[dict[str, Any]],
+) -> list[TimedLine]:
+    grouped: dict[int, list[dict[str, Any]]] = {}
+    for segment in voice_segments:
+        input_index = segment.get("dialogue_input_index")
+        if isinstance(input_index, int):
+            grouped.setdefault(input_index, []).append(segment)
+    timeline: list[TimedLine] = []
+    for index, line in enumerate(story.lines):
+        segments = grouped.get(index, [])
+        if not segments:
+            raise ValueError(f"ElevenLabs 没有返回第 {index + 1} 句台词的时间戳")
+        start_ms = round(min(float(item["start_time_seconds"]) for item in segments) * 1000)
+        end_ms = round(max(float(item["end_time_seconds"]) for item in segments) * 1000)
+        timeline.append(
+            TimedLine(
+                index=index + 1,
+                speaker_name=story.characters[line.speaker].name,
+                text=line.text,
+                start_ms=start_ms,
+                end_ms=end_ms,
+            )
+        )
+    return timeline
+
+
+def _elevenlabs_text(text: str, emotion: str | None) -> str:
+    converted = re.sub(r"\((laughs|chuckle|coughs|clear-throat|groans|breath|pant|"
+                       r"inhale|exhale|gasps|sniffs|sighs|snorts|burps|lip-smacking|"
+                       r"humming|hissing|emm|sneezes)\)", r"[\1]", text)
+    if emotion:
+        return f"[{emotion}] {converted}"
+    return converted
+
+
 def _generate_sound_effects(
     story: StoryScript,
     client: ElevenLabsClient,
@@ -191,6 +357,8 @@ def _generate_sound_effects(
 ) -> tuple[list[dict[str, Any]], list[PlacedEffect]]:
     effect_dir = output_dir / "sound_effects"
     effect_dir.mkdir(exist_ok=True)
+    shared_cache_dir = output_dir.parent / ".sound_effect_cache"
+    shared_cache_dir.mkdir(exist_ok=True)
     records: list[dict[str, Any]] = []
     placed: list[PlacedEffect] = []
     for index, effect in enumerate(story.sound_effects, start=1):
@@ -198,6 +366,7 @@ def _generate_sound_effects(
         request_hash = _request_hash(payload)
         audio_path = effect_dir / f"{index:03d}_{_safe_name(effect.id)}.mp3"
         metadata_path = audio_path.with_suffix(".mp3.json")
+        shared_audio_path = shared_cache_dir / f"{request_hash}.mp3"
         metadata = _read_json(metadata_path)
         if (
             audio_path.exists()
@@ -207,6 +376,18 @@ def _generate_sound_effects(
         ):
             progress(f"[环境音 {index}/{len(story.sound_effects)}] 复用 {effect.id}")
             record = metadata
+            if not shared_audio_path.exists():
+                shutil.copy2(audio_path, shared_audio_path)
+        elif shared_audio_path.exists() and shared_audio_path.stat().st_size > 0:
+            progress(f"[环境音 {index}/{len(story.sound_effects)}] 复用共享缓存 {effect.id}")
+            shutil.copy2(shared_audio_path, audio_path)
+            record = {
+                "id": effect.id,
+                "prompt": effect.prompt,
+                "audio_file": str(audio_path.relative_to(output_dir)),
+                "request_hash": request_hash,
+            }
+            _write_json(metadata_path, record)
         else:
             progress(
                 f"[环境音 {index}/{len(story.sound_effects)}] 生成 {effect.id}："
@@ -214,6 +395,7 @@ def _generate_sound_effects(
             )
             result = client.generate(payload)
             save_audio(audio_path, result.audio)
+            shutil.copy2(audio_path, shared_audio_path)
             record = {
                 "id": effect.id,
                 "prompt": effect.prompt,

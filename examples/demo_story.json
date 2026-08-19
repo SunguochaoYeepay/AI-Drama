@@ -12,6 +12,7 @@
     "narrator": {
       "name": "旁白",
       "voice_id": "Chinese (Mandarin)_Lyrical_Voice",
+      "elevenlabs_voice_id": "JBFqnCBsd6RMkjVDRZzb",
       "speed": 0.95,
       "vol": 1,
       "pitch": 0,
@@ -20,6 +21,7 @@
     "xiaoyu": {
       "name": "小雨",
       "voice_id": "Chinese (Mandarin)_HK_Flight_Attendant",
+      "elevenlabs_voice_id": "cgSgspJ2msm6clMCkdW9",
       "speed": 1,
       "vol": 1,
       "pitch": 0

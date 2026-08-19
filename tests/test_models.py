@@ -23,6 +23,12 @@ class StoryScriptTests(unittest.TestCase):
         self.assertEqual(story.audio.format, "mp3")
         self.assertEqual(story.lines[0].pause_after_ms, 250)
 
+    def test_loads_elevenlabs_voice_id(self) -> None:
+        data = valid_story()
+        data["characters"]["narrator"]["elevenlabs_voice_id"] = "voice-zh"
+        story = StoryScript.from_dict(data)
+        self.assertEqual(story.characters["narrator"].elevenlabs_voice_id, "voice-zh")
+
     def test_rejects_unknown_speaker(self) -> None:
         data = valid_story()
         data["lines"][0]["speaker"] = "missing"

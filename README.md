@@ -11,6 +11,8 @@
 - 分句生成并缓存，修改一句时不必重新生成整段故事
 - 使用 ElevenLabs `eleven_text_to_sound_v2` 生成环境音和定点音效
 - 环境音可以按绝对时间或指定台词开始，支持循环、音量和淡入淡出
+- 对白可以在 MiniMax Speech 2.8 与 ElevenLabs `eleven_v3` 之间切换比较
+- 两种对白方案共享环境音缓存，不会因为对比重复生成相同音效
 - 自动合并完整音频并根据实际时长生成 SRT 字幕
 - 保存请求计划、接口追踪编号和生成清单，方便排查失败请求
 
@@ -25,7 +27,7 @@
    ELEVENLABS_API_KEY=your_api_key
    ```
 
-2. 复制并修改 [`examples/demo_story.json`](examples/demo_story.json)，为每个角色设置 MiniMax 音色 ID，并按顺序填写台词。
+2. 复制并修改 [`examples/demo_story.json`](examples/demo_story.json)，为每个角色设置 MiniMax `voice_id` 和 ElevenLabs `elevenlabs_voice_id`，再按顺序填写台词。
 
 3. 先检查脚本，不调用接口、不产生费用：
 
@@ -39,7 +41,13 @@
    python3 -m ai_drama generate examples/demo_story.json
    ```
 
-默认结果位于 `outputs/demo_story/`。也可以使用 `--output` 指定目录，或使用 `--no-merge` 只生成分句音频。
+5. 使用 ElevenLabs `eleven_v3` 生成同一故事的多角色对话版：
+
+   ```bash
+   python3 -m ai_drama generate examples/demo_story.json --speech-provider elevenlabs
+   ```
+
+MiniMax 结果默认位于 `outputs/demo_story/`，ElevenLabs 结果位于 `outputs/demo_story_elevenlabs/`。也可以使用 `--output` 指定目录。`--no-merge` 仅适用于 MiniMax 逐句生成模式。
 
 ## 故事脚本
 
@@ -51,6 +59,7 @@
     "narrator": {
       "name": "旁白",
       "voice_id": "Chinese (Mandarin)_Lyrical_Voice",
+      "elevenlabs_voice_id": "JBFqnCBsd6RMkjVDRZzb",
       "speed": 0.95,
       "vol": 1,
       "pitch": 0,
@@ -83,12 +92,15 @@
 
 Speech 2.8 可用情绪：`happy`、`sad`、`angry`、`fearful`、`disgusted`、`surprised`、`calm`。未填写时由模型根据台词自动判断。
 
+ElevenLabs 使用带时间戳的 Text to Dialogue 接口，一次生成整段多角色表演。免费 API 方案可以使用账号自带的预设音色；Voice Library 中的共享中文音色通常需要付费方案才能通过 API 调用。
+
 环境音的 `duration_seconds` 必须在 0.5–30 秒之间。`start_ms` 表示从成片第几毫秒开始；`start_at_line` 表示从第几句台词开始，二者只填一个。持续环境音可设置 `loop: true` 和 `until_end: true`，系统会循环到对白结束。建议用英文描述音效，并加入 `no music, no voices`，减少模型生成音乐或人声的概率。
 
 ## 输出内容
 
 - `segments/`：每句角色音频及对应接口信息
 - `sound_effects/`：ElevenLabs 生成的环境音及缓存信息
+- `outputs/.sound_effect_cache/`：跨对白供应商共享的环境音缓存
 - `dialogue.mp3`：合并后的完整对话
 - `final_mix.mp3`：对白与全部环境音混合后的最终音频
 - `dialogue.srt`：按实际音频时长生成的字幕
