@@ -1,0 +1,282 @@
+{
+  "title": "藏在账单里的三千块",
+  "model": "speech-2.8-hd",
+  "language_boost": "Chinese",
+  "audio": {
+    "sample_rate": 32000,
+    "bitrate": 128000,
+    "format": "mp3",
+    "channel": 1
+  },
+  "characters": {
+    "narrator": {
+      "name": "旁白",
+      "voice_id": "Chinese (Mandarin)_Radio_Host",
+      "speed": 0.96,
+      "vol": 1,
+      "pitch": 0,
+      "emotion": "calm"
+    },
+    "husband": {
+      "name": "丈夫陈浩",
+      "voice_id": "Chinese (Mandarin)_Reliable_Executive",
+      "speed": 1.02,
+      "vol": 1,
+      "pitch": 0
+    },
+    "wife": {
+      "name": "妻子林悦",
+      "voice_id": "Chinese (Mandarin)_Warm_Bestie",
+      "speed": 1.03,
+      "vol": 1,
+      "pitch": 0
+    },
+    "child": {
+      "name": "儿子小宇",
+      "voice_id": "clever_boy",
+      "speed": 1.04,
+      "vol": 0.95,
+      "pitch": 1
+    },
+    "mother": {
+      "name": "婆婆",
+      "voice_id": "Chinese (Mandarin)_Kind-hearted_Antie",
+      "speed": 0.94,
+      "vol": 1,
+      "pitch": -1
+    }
+  },
+  "sound_effects": [
+    {
+      "id": "apartment_evening",
+      "prompt": "Subtle evening ambience inside a small lived-in apartment, faint refrigerator hum and very distant city traffic through closed windows, quiet domestic room tone, seamless loop, no music, no voices",
+      "start_ms": 0,
+      "duration_seconds": 12,
+      "prompt_influence": 0.62,
+      "loop": true,
+      "until_end": true,
+      "volume_db": -31,
+      "fade_in_ms": 800,
+      "fade_out_ms": 1000
+    },
+    {
+      "id": "bowl_on_table",
+      "prompt": "A ceramic rice bowl set down hard on a wooden dining table during an argument, one sharp clack, close indoor recording, no breaking glass, no music, no voices",
+      "start_at_line": 5,
+      "offset_ms": 500,
+      "duration_seconds": 2,
+      "prompt_influence": 0.76,
+      "volume_db": -10,
+      "fade_out_ms": 150
+    },
+    {
+      "id": "child_crying",
+      "prompt": "A six-year-old boy starts crying after hearing his parents argue, frightened sobbing and shaky breathing, emotionally realistic but not screaming, no intelligible words, no adult voices, no music",
+      "start_at_line": 13,
+      "offset_ms": 800,
+      "duration_seconds": 12,
+      "prompt_influence": 0.82,
+      "volume_db": -18,
+      "fade_in_ms": 250,
+      "fade_out_ms": 1200
+    },
+    {
+      "id": "bedroom_door_footsteps",
+      "prompt": "An interior bedroom door opens, followed by an older woman walking several quick steps across a quiet apartment floor, natural close indoor foley, no speech, no music",
+      "start_at_line": 17,
+      "duration_seconds": 5,
+      "prompt_influence": 0.72,
+      "volume_db": -13,
+      "fade_out_ms": 300
+    }
+  ],
+  "lines": [
+    {
+      "speaker": "narrator",
+      "text": "晚上九点，饭菜已经凉了。林悦陪儿子小宇写作业，陈浩推门进来，手里紧紧攥着手机。",
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "wife",
+      "text": "回来啦？锅里还有汤，我去给你热一下。",
+      "emotion": "calm",
+      "pause_after_ms": 250
+    },
+    {
+      "speaker": "husband",
+      "text": "先别忙。这个月家用卡里少了三千块，你转到哪儿去了？",
+      "emotion": "angry",
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "wife",
+      "text": "你一进门就查账？陈浩，你是在问我，还是在审我？",
+      "emotion": "angry",
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "husband",
+      "text": "房贷后天就扣，孩子的托管费也没交。三千块说没就没，我不能问吗？",
+      "emotion": "angry",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "wife",
+      "text": "那你上周背着我转给老周五千块，怎么一句都没提？只许你讲义气，不许我有急事？",
+      "emotion": "angry",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "husband",
+      "text": "老周的店周转不开，月底就还。他以前帮过我，我总不能看着不管。",
+      "emotion": "angry",
+      "pause_after_ms": 280
+    },
+    {
+      "speaker": "wife",
+      "text": "你帮朋友叫有情有义，我花钱就得拿着账单向你汇报，是不是？",
+      "emotion": "angry",
+      "pause_after_ms": 320
+    },
+    {
+      "speaker": "husband",
+      "text": "别偷换概念。我问的是，那三千块到底去哪儿了？",
+      "emotion": "angry",
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "wife",
+      "text": "我没乱花，更没拿去贴补娘家。这个家不是只有你一个人在撑。",
+      "emotion": "sad",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "husband",
+      "text": "那你为什么不敢说？每次一谈钱，你就说我不信任你。可你这样让我怎么信？",
+      "emotion": "angry",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "child",
+      "text": "爸爸，妈妈，你们别吵了……我害怕。",
+      "emotion": "fearful",
+      "speed": 0.9,
+      "pause_after_ms": 650
+    },
+    {
+      "speaker": "narrator",
+      "text": "小宇扔下铅笔，眼泪一下涌了出来。争执声停了一瞬，屋里只剩孩子断断续续的哭声。",
+      "emotion": "sad",
+      "pause_after_ms": 500
+    },
+    {
+      "speaker": "wife",
+      "text": "你看见了吗？每次你一着急，声音就越来越大。孩子才六岁。",
+      "emotion": "sad",
+      "pause_after_ms": 320
+    },
+    {
+      "speaker": "husband",
+      "text": "我不是想吓他。我只是每天算着还差多少钱，真的快喘不过气了。(sighs)",
+      "emotion": "sad",
+      "speed": 0.94,
+      "pause_after_ms": 400
+    },
+    {
+      "speaker": "wife",
+      "text": "我也会怕。怕孩子的费用不够，怕老人突然生病，还怕跟你说了，你又一个人硬扛。",
+      "emotion": "sad",
+      "speed": 0.96,
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "narrator",
+      "text": "卧室门忽然开了。婆婆快步走出来，先把哭泣的小宇搂进怀里。",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "mother",
+      "text": "都把声音放低。小宇，奶奶在这儿，不怕。陈浩，那三千块，你别再逼小悦了。",
+      "emotion": "calm",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "husband",
+      "text": "妈，您知道这笔钱？",
+      "emotion": "surprised",
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "mother",
+      "text": "钱是给我做心脏检查的。上周我胸口发紧，是小悦陪我去的医院。也是我让她先别告诉你。",
+      "emotion": "sad",
+      "speed": 0.92,
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "wife",
+      "text": "医生说还要等复查结果。妈怕你担心，也怕你又请假扣工资。我本来想结果出来再说。",
+      "emotion": "sad",
+      "pause_after_ms": 400
+    },
+    {
+      "speaker": "mother",
+      "text": "这事怪我。可你们两个也都有错，一个借钱不商量，一个看病不说明。嘴上都说为了家，心里却都把对方关在门外。",
+      "emotion": "calm",
+      "speed": 0.91,
+      "pause_after_ms": 500
+    },
+    {
+      "speaker": "husband",
+      "text": "小悦，对不起。我看到余额少了就慌了，没先问清楚，还当着孩子的面冲你发火。",
+      "emotion": "sad",
+      "speed": 0.94,
+      "pause_after_ms": 400
+    },
+    {
+      "speaker": "wife",
+      "text": "我也有错。我明知道你最近压力大，还答应妈瞒着你。可那五千块的事，你也得给我一个交代。",
+      "emotion": "sad",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "husband",
+      "text": "明天我就让老周写清还款时间。以后超过一千块，不管是谁花、借，咱们都先说一声。",
+      "emotion": "calm",
+      "pause_after_ms": 350
+    },
+    {
+      "speaker": "mother",
+      "text": "还得加一条：家里谁身体不舒服，都不许瞒。钱少了还能挣，人耽误了，多少钱都补不回来。",
+      "emotion": "calm",
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "child",
+      "text": "那你们以后还会这样吵吗？",
+      "emotion": "sad",
+      "speed": 0.92,
+      "pause_after_ms": 300
+    },
+    {
+      "speaker": "husband",
+      "text": "不会了。爸爸先跟妈妈好好说，也会认真听妈妈说。小宇，对不起。",
+      "emotion": "calm",
+      "speed": 0.94,
+      "pause_after_ms": 320
+    },
+    {
+      "speaker": "wife",
+      "text": "妈妈也答应你，有事不憋着。来，我们一家人拉钩。",
+      "emotion": "happy",
+      "pause_after_ms": 450
+    },
+    {
+      "speaker": "narrator",
+      "text": "那晚，他们没有立刻变得富裕，却第一次把账本和心事一起摊在桌上。真正压垮一个家的，往往不是钱少，而是彼此不再说真话。",
+      "emotion": "calm",
+      "speed": 0.93,
+      "pause_after_ms": 700
+    }
+  ]
+}
