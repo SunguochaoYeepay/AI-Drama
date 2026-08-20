@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI短剧真实生图"
+  short_description: "为Qwen与Flux生成真实、连续、可审核的短剧人物和分镜提示词"
+  default_prompt: "根据已确认的剧本和角色设定，生成真实摄影感的人物参考图、场景参考图和连续分镜提示词，锁定身份与服装并提供质量审核清单。"

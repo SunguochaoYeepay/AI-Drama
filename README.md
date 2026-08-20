@@ -8,6 +8,7 @@
 
 - [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md)：从故事改编到多角色语音、环境音、字幕和最终混音。
 - [`generate-ai-drama-video`](SKILL/generate-ai-drama-video/SKILL.md)：从已确认的故事和音频生成角色定妆、Qwen 关键帧和 MiniMax H3 测试镜头。
+- [`generate-ai-drama-visuals`](SKILL/generate-ai-drama-visuals/SKILL.md)：为 Qwen、Flux 和 ComfyUI 生成真实、连续、可审核的短剧人物、场景和分镜提示词。
 
 支持 Skills 的 AI 可以直接使用：
 

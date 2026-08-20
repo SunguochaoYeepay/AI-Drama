@@ -8,6 +8,7 @@ description: Turn an accepted Chinese drama story and audio track in this reposi
 Create repeatable keyframes and short H3 shots without changing the accepted dialogue mix. Work from the repository root containing `ai_drama/`, `examples/`, `workflows/`, and `outputs/`.
 
 Read [official-workflows.md](references/official-workflows.md) before changing a workflow or H3 prompt. Read [visual-quality.md](references/visual-quality.md) before writing character or scene prompts.
+For the reusable realism and continuity prompt process, also read [../generate-ai-drama-visuals/SKILL.md](../generate-ai-drama-visuals/SKILL.md) and its references.
 
 ## Workflow
 
