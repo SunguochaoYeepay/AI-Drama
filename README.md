@@ -4,21 +4,37 @@
 
 ## AI Skill
 
-仓库内置两个可复用 Skill：
+仓库内置四个可复用 Skill，按下面顺序使用：
 
-- [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md)：从故事改编到多角色语音、环境音、字幕和最终混音。
-- [`generate-ai-drama-video`](SKILL/generate-ai-drama-video/SKILL.md)：从已确认的故事和音频生成角色定妆、Qwen 关键帧和 MiniMax H3 测试镜头。
-- [`generate-ai-drama-visuals`](SKILL/generate-ai-drama-visuals/SKILL.md)：为 Qwen、Flux 和 ComfyUI 生成真实、连续、可审核的短剧人物、场景和分镜提示词。
+1. [`generate-ai-drama-screenplay`](SKILL/generate-ai-drama-screenplay/SKILL.md)：把故事拆成完整剧本、对白 ID、镜头和 DramaClaw 制作包。
+2. [`generate-ai-drama-audio`](SKILL/generate-ai-drama-audio/SKILL.md)：用 MiniMax Speech 2.8 生成人声，用 ElevenLabs 生成环境音和拟音，输出混音与字幕。
+3. [`generate-ai-drama-visuals`](SKILL/generate-ai-drama-visuals/SKILL.md)：为 Qwen、Flux 和 ComfyUI 生成真实、连续、可审核的人物、场景和关键帧提示词。
+4. [`generate-ai-drama-video`](SKILL/generate-ai-drama-video/SKILL.md)：使用已确认的关键帧和音频，分段生成 MiniMax H3 视频，并用尾帧接力保持连续。
 
 支持 Skills 的 AI 可以直接使用：
 
 ```text
 使用 $generate-ai-drama-audio，把这个故事制作成多角色剧情音频：……
 
+使用 $generate-ai-drama-screenplay，把这个故事拆成完整短剧剧本和 DramaClaw 制作包：……
+
 使用 $generate-ai-drama-video，按已确认的故事和音频生成角色关键帧，并跑一个 H3 4 步测试镜头。
 ```
 
 如果当前 AI 不会自动发现仓库中的 Skill，请先让它完整读取 `SKILL/generate-ai-drama-audio/SKILL.md`，再提供故事。Skill 不包含 API Key；密钥仍只保存在本地 `.env`。
+
+## 推荐工作流
+
+```text
+故事
+  -> 剧本与制作包
+  -> MiniMax Speech 2.8 对白 + ElevenLabs 环境音
+  -> 人物参考图 / 场景图 / 连续关键帧
+  -> 单图生视频，上一段尾帧接下一段首图
+  -> H3 分段视频 + 独立对白/环境音后期混音
+```
+
+DramaClaw 自由画布负责资源管理、人工审图、ComfyUI 和 H3 调用。故事拆解和提示词由这些 Skill 负责；不要使用 DramaClaw 原生剧本分析去重新改写剧情。
 
 ## 当前能力
 
@@ -73,6 +89,8 @@ python3 -m ai_drama video-h3 \
 - `family-money-grid-b.svg`：1-4 到 1-5，婆婆从右侧卧室出场、说明检查费、四人围桌。
 
 九宫格只作为构图参考，不作为写实风格参考。生成下一镜头时，优先把上一段视频的尾帧作为首图，同时继续挂人物定妆图和客餐厅场景图。需要换角度时，在动作或台词停顿处硬切，并按 `continuity_chain` 继承人物位置、视线、手部状态和桌面道具。
+
+注意：`family_money_visual_quality_test.json` 才是 DramaClaw 的制作包；`family_money_storyboard.json` 是调度说明，格式为 `ai-drama.storyboard.v1`，不能通过制作包入口导入。两张 SVG 只作为画布中的位置参考图。
 
 ## 发布到 DramaClaw 自由画布
 

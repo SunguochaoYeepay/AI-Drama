@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Drama Screenplay"
+  short_description: "Turn stories into production-ready Chinese drama scripts"
+  default_prompt: "Use $generate-ai-drama-screenplay to turn this story into a complete, production-ready Chinese drama script and package."

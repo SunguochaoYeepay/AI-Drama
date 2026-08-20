@@ -15,6 +15,7 @@ Read [realism.md](references/realism.md) before writing prompts. Read [model-pro
 - Lock each recurring character's face anchors, age, hair, wardrobe, body type, and signature props. Repeat the same anchors in every shot.
 - Use `婆婆` for the husband's mother in the family-money story. Do not replace it with `岳母`.
 - Keep one main visible action per frame. Do not turn a shot into a paragraph of invisible backstory.
+- Write prompts as connected, concrete sentences. State where each character starts, what single action occurs, and where the body/props end; this gives single-image-to-video a usable handoff instead of leaving the model to infer blocking from keywords.
 - Use concrete camera and lighting language instead of abstract praise such as “最好看” or “高级感”.
 - Keep creative freedom in incidental background details, natural lighting variation, and small gestures, not in identity, clothing, geography, or story facts.
 - Do not blindly copy Stable Diffusion weighting syntax such as `(term:1.6)`. Qwen and Flux workflows may treat it as literal text or ignore it.
@@ -61,6 +62,8 @@ Write prompts in this order:
 Write a required `visual_description` that states what is visibly in the frame. `action` is supplementary and never replaces `visual_description`.
 
 Generate separate `qwen_prompt` and `flux_prompt` fields when both engines may be used. Qwen prompts can remain structured Chinese. Flux prompts should use concrete English photography language and avoid keyword piles.
+
+For adjacent shots, add `continuity_in` and `continuity_out` when the package supports them. `continuity_out` must be copied into the next shot's `continuity_in`. If the next shot uses a new angle, label the transition as a hard cut and preserve the action state; if it continues the same action, use the previous clip's tail frame as the next image input.
 
 ### 5. Add anti-synthetic constraints
 

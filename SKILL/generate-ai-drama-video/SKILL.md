@@ -17,16 +17,19 @@ For the reusable realism and continuity prompt process, also read [../generate-a
 3. Build one video plan under `examples/`. Define stable ages, faces, hair, clothing, location, and props once, then repeat those anchors verbatim in every keyframe prompt.
 4. Split the accepted audio into shots using the SRT timing. Keep each H3 shot between 4 and 15 seconds and use 24 fps. Do not force a whole multi-minute drama into one generation.
 5. Generate a neutral character lineup first, then generate the opening and conflict keyframes. Use Qwen Image Edit with accepted references for full production when identity drift matters; a direct text-to-image frame is sufficient only for an initial pipeline test.
-6. Run a Qwen keyframe from the repository root:
+6. Before batching keyframes, make a continuity table for adjacent shots. Record `continuity_in`, `continuity_out`, fixed character positions, facing direction, hand/prop state, door state, lighting, and the intended transition (`tail_frame_reference` or `hard_cut`). A prompt must describe the inherited state in ordinary connected sentences; do not rely on isolated keyword lists.
+7. For same-angle or same-action clips, generate the next clip from the previous clip's final frame. Inspect and save the final frame, then use it as the next shot's start image while retaining the approved character and location references. This is the default single-image-to-video chain.
+8. For a deliberate angle or composition change, do not morph between unrelated keyframes. Cut at an action or dialogue pause, generate the new keyframe from the previous tail-state description, and keep the next clip's first pose consistent with that state.
+9. Run a Qwen keyframe from the repository root:
 
    ```bash
    python3 -m ai_drama video-keyframe examples/<story>_video.json <keyframe_id> \
      --comfyui-url http://<host>:8188
    ```
 
-7. Inspect faces, hands, ages, clothing, composition, and continuity. Obtain user approval for the character lineup and representative keyframes before generating all shots.
-8. Write every H3 prompt with the exact official section names and order. For I2VA, anchor `<Picture 1>` at `0.00` seconds. Keep spoken dialogue out of a motion-only test when an accepted MiniMax Speech track will be synchronized later.
-9. Run the first 5-second H3 test with the official 4-step 768p Turbo settings:
+10. Inspect faces, hands, ages, clothing, composition, and continuity. Obtain user approval for the character lineup and representative keyframes before generating all shots.
+11. Write every H3 prompt with the exact official section names and order. For I2VA, anchor `<Picture 1>` at `0.00` seconds. Keep spoken dialogue out of a motion-only test when an accepted MiniMax Speech track will be synchronized later.
+12. Run the first 5-second H3 test with the official 4-step 768p Turbo settings:
 
    ```bash
    python3 -m ai_drama video-h3 examples/<story>_video.json <shot_id> \
@@ -34,9 +37,9 @@ For the reusable realism and continuity prompt process, also read [../generate-a
      --comfyui-url http://<host>:8188
    ```
 
-10. Verify the MP4 with `ffprobe`, inspect representative frames, and listen for unwanted generated speech or music. Keep only useful local renders under ignored `outputs/`.
-11. After keyframe approval, generate the remaining shots, align them to the accepted SRT/audio, and perform lip sync as a separate controlled stage. Do not replace the accepted MiniMax Speech 2.8 dialogue with H3-generated speech unless the user requests a comparison.
-12. Publish the accepted artifacts to DramaClaw when a Freezone canvas is available:
+13. Verify the MP4 with `ffprobe`, inspect the first and last frame, and listen for unwanted generated speech or music. Keep only useful local renders under ignored `outputs/`. A clip is not approved until its tail frame matches the next shot's expected input state.
+14. After keyframe approval, generate the remaining shots, align them to the accepted SRT/audio, and perform lip sync as a separate controlled stage. Do not replace the accepted MiniMax Speech 2.8 dialogue with H3-generated speech unless the user requests a comparison.
+15. Publish the accepted artifacts to DramaClaw when a Freezone canvas is available:
 
     ```bash
     python3 -m ai_drama publish-canvas examples/<story>.json examples/<story>_video.json \
@@ -45,7 +48,7 @@ For the reusable realism and continuity prompt process, also read [../generate-a
     ```
 
     This creates deterministic nodes for the project note, script, final audio, available keyframes, H3 test shot, and video plan. It uploads only local outputs and writes the canvas through the official `/freezone/upload` and `/freezone/canvases/{canvas_id}` APIs.
-13. Run `python3 -m unittest discover -v`, the Skill validator, and `git diff --check` before publishing source changes.
+16. Run `python3 -m unittest discover -v`, the Skill validator, and `git diff --check` before publishing source changes.
 
 ## Guardrails
 
