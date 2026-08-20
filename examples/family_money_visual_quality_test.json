@@ -1,6 +1,6 @@
 {
   "schema_version": "ai-drama.production.v1",
-  "package_id": "family-money-visual-quality-test-v1",
+  "source_package_id": "family-money-visual-quality-test-v1",
   "project": {
     "title": "藏在账单里的三千块",
     "style": "realistic",
@@ -118,22 +118,19 @@
       "id": "d001",
       "speaker": "lin_yue",
       "text": "回来啦？锅里还有汤，我去给你热一下。",
-      "emotion": "calm",
-      "audio_asset_id": "audio-line-002"
+      "emotion": "calm"
     },
     {
       "id": "d002",
       "speaker": "chen_hao",
       "text": "先别忙。这个月家用卡里少了三千块，你转到哪儿去了？",
-      "emotion": "restrained_anger",
-      "audio_asset_id": "audio-line-003"
+      "emotion": "restrained_anger"
     },
     {
       "id": "d003",
       "speaker": "lin_yue",
       "text": "你一进门就查账？陈浩，你这是在问我，还是在审我？",
-      "emotion": "hurt_defensive",
-      "audio_asset_id": "audio-line-004"
+      "emotion": "hurt_defensive"
     }
   ],
   "scenes": [
@@ -149,6 +146,7 @@
         {
           "id": "1-1-01",
           "duration_seconds": 6,
+          "visual_description": "夜晚的普通中国城市公寓客餐厅，陈浩刚推门站在左侧门口，林悦坐在木质餐桌旁陪六岁的小宇写作业，三个人保持清楚的空间关系，家庭账本、作业本、铅笔、陶瓷碗和手机摆在桌面上。",
           "characters": ["chen_hao", "lin_yue", "xiaoyu"],
           "reference_assets": ["chen_hao", "lin_yue", "xiaoyu", "apartment_dining_room_night"],
           "shot_type": "中远景",
@@ -169,6 +167,7 @@
         {
           "id": "1-1-02",
           "duration_seconds": 5,
+          "visual_description": "同一间夜晚客餐厅，林悦从餐桌旁起身并回头看向陈浩，陈浩站在桌边把手机放到账本旁，小宇坐在两人之间握着铅笔观察父母，桌面道具和三个人的服装保持连续。",
           "characters": ["chen_hao", "lin_yue", "xiaoyu"],
           "reference_assets": ["chen_hao", "lin_yue", "xiaoyu", "apartment_dining_room_night"],
           "shot_type": "双人中景",
