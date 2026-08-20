@@ -165,7 +165,7 @@ def build_canvas_nodes(
         "extraParams": {},
         "isGenerating": False,
     })
-    rows = _script_rows(story)
+    rows = _script_rows(story, video_plan, assets)
     add("story-script", "scriptNode", 0, 310, 700, 620, {
         "displayName": f"{story.title} · 剧本",
         "prompt": story.title,
@@ -256,23 +256,175 @@ def _artifact_candidates(story: StoryScript, plan: dict[str, Any] | None, root: 
     return candidates
 
 
-def _script_rows(story: StoryScript) -> list[dict[str, Any]]:
+def _script_rows(
+    story: StoryScript,
+    video_plan: dict[str, Any] | None = None,
+    assets: dict[str, dict[str, Any]] | None = None,
+) -> list[dict[str, Any]]:
+    assets = assets or {}
+    character_descriptions = _character_descriptions(story, video_plan)
+    lineup_url = _asset_url(assets.get("character_lineup"))
+    keyframes = [item for item in (video_plan or {}).get("keyframes", []) if item.get("id")]
     rows = []
     elapsed = 0
     for index, line in enumerate(story.lines, 1):
-        duration = max(1, len(line.text) * 220)
+        duration = max(2, round(len(line.text) * 0.22))
         start, end = elapsed, elapsed + duration
+        speaker = story.characters[line.speaker]
+        speaker_name = speaker.name
+        other = _other_speaker(story, index - 1, line.speaker)
+        other_name = story.characters[other].name if other else ""
+        emotion = line.emotion or speaker.voice.emotion or "自然"
+        reference_url = _reference_for_line(index - 1, len(story.lines), keyframes, assets)
+        scene = _scene_description(video_plan)
+        action = _action_for_line(line.text, line.speaker, emotion, index, len(story.lines))
+        shot = _shot_for_line(line.text, index, len(story.lines))
+        sound = _sound_for_line(story, index, line.text)
+        character_1_desc = character_descriptions.get(line.speaker, f"{speaker_name}，保持既定年龄、发型与服装")
+        character_2_desc = character_descriptions.get(other, "") if other else ""
+        visual = f"{scene}。{speaker_name}{action}"
+        if other_name:
+            visual += f"，与{other_name}保持清晰的视线和空间关系"
+        shot_prompt = (
+            f"写实中国家庭短剧，{shot}，{scene}。{speaker_name}（{character_1_desc}）{action}。"
+            f"{('画面同时包含' + other_name + '（' + character_2_desc + '）。') if other_name else ''}"
+            f"{emotion}，真实皮肤纹理，低饱和生活化布景，人物身份和服装连续，无字幕无文字无水印。"
+        )
+        motion_prompt = (
+            f"镜头{shot}，镜头轻微{_camera_move_for_line(index, emotion)}；{speaker_name}{action}，"
+            f"表演{emotion}但克制自然，保持人物面孔、服装和场景连续；{('不要遮挡' + other_name + '的脸。') if other_name else '保留环境空间关系。'}"
+        )
         rows.append({
-            "shot_number": index, "start_time": _timecode(start), "end_time": _timecode(end),
-            "duration": f"{max(1, round(duration / 1000))}s", "visual_description": "根据台词和情绪匹配角色表演",
-            "narrative": f"{story.characters[line.speaker].name}：{line.text}", "shot_size": "中景",
-            "camera_angle": "平视", "camera_movement": "自然微动", "focal_and_dof": "35mm，中等景深",
-            "lighting": "夜晚暖色室内顶灯", "background_music": "N/A",
-            "voice_and_sfx": "对白、室内底噪和对应环境音", "image_prompt": "",
-            "video_motion_prompt": "保留人物身份，克制自然表演，连续镜头",
+            # Keys match DramaClaw's ScriptNode table. The *_1 aliases keep the
+            # payload compatible with the backend story-script schema as well.
+            "shot_no": index,
+            "shot_number": index,
+            "start_time": _timecode(start * 1000),
+            "end_time": _timecode(end * 1000),
+            "duration": duration,
+            "visual_description": visual,
+            "character": speaker_name,
+            "character_1": speaker_name,
+            "character_desc_1": character_1_desc,
+            "character_description_1": character_1_desc,
+            "character_image_1": lineup_url or "",
+            "character_2": other_name,
+            "character_desc_2": character_2_desc,
+            "character_description_2": character_2_desc,
+            "character_image_2": lineup_url or "",
+            "reference": reference_url or "",
+            "shot": shot,
+            "shot_size": shot,
+            "action": action,
+            "character_action": action,
+            "emotion": emotion,
+            "scene_tags": "夜晚公寓、客餐厅、家庭关系、连续性场景",
+            "lighting_mood": "暖色顶灯，低饱和，冲突时阴影略加深",
+            "lighting": "暖色顶灯，低饱和，冲突时阴影略加深",
+            "sound": sound,
+            "voice_and_sfx": sound,
+            "dialogue": f"{speaker_name}：{line.text}",
+            "shot_prompt": shot_prompt,
+            "image_prompt": shot_prompt,
+            "video_motion_prompt": motion_prompt,
         })
-        elapsed = end + line.pause_after_ms
+        elapsed = end + round(line.pause_after_ms / 1000)
     return rows
+
+
+def _character_descriptions(story: StoryScript, plan: dict[str, Any] | None) -> dict[str, str]:
+    plan_characters = (plan or {}).get("characters", {})
+    aliases = {
+        "narrator": ("narrator", "旁白"),
+        "husband": ("chen_hao", "丈夫", "陈浩"),
+        "wife": ("lin_yue", "妻子", "林悦", "林月"),
+        "child": ("xiaoyu", "儿子", "小宇"),
+        "mother": ("mother_in_law", "婆婆", "岳母"),
+    }
+    descriptions: dict[str, str] = {}
+    for key, character in story.characters.items():
+        name = character.name
+        tokens = (name, *aliases.get(key, (key,)))
+        matches = [
+            str(value)
+            for plan_key, value in plan_characters.items()
+            if any(token and (token in str(value) or token in str(plan_key)) for token in tokens)
+        ]
+        descriptions[key] = matches[0] if matches else f"{name}，普通中国家庭自然长相，服装和年龄保持连续"
+    return descriptions
+
+
+def _other_speaker(story: StoryScript, index: int, speaker: str) -> str | None:
+    for line in story.lines[index + 1 :]:
+        if line.speaker != speaker:
+            return line.speaker
+    for line in reversed(story.lines[:index]):
+        if line.speaker != speaker:
+            return line.speaker
+    return None
+
+
+def _scene_description(plan: dict[str, Any] | None) -> str:
+    location = str((plan or {}).get("location", "夜晚普通中国家庭客餐厅"))
+    return location.rstrip("。")
+
+
+def _reference_for_line(index: int, total: int, keyframes: list[dict[str, Any]], assets: dict[str, dict[str, Any]]) -> str:
+    if not keyframes:
+        return _asset_url(assets.get("opening_conflict")) or _asset_url(assets.get("character_lineup")) or ""
+    if index < max(1, total // 5):
+        preferred = "character_lineup"
+    elif index < total // 2:
+        preferred = "opening_conflict"
+    elif index < total * 3 // 4:
+        preferred = "argument_peak"
+    elif index < total * 9 // 10:
+        preferred = "mother_intervenes"
+    else:
+        preferred = "reconciliation"
+    return _asset_url(assets.get(preferred)) or _asset_url(assets.get(str(keyframes[min(index, len(keyframes) - 1)].get("id")))) or ""
+
+
+def _action_for_line(text: str, speaker: str, emotion: str, index: int, total: int) -> str:
+    if "哭" in text or "害怕" in text:
+        return "眼含泪水，肩膀收紧，声音发抖"
+    if "对不起" in text or "抱" in text:
+        return "放下防备，身体微微前倾，试图安抚对方"
+    if speaker == "narrator":
+        return "以旁白视角交代现场，画面关注正在发生的动作"
+    if emotion in {"angry", "生气", "愤怒"}:
+        return "身体前倾，手势克制但有力度，直视对方"
+    if emotion in {"sad", "悲伤"}:
+        return "停顿后低头或移开视线，手指无意识地摩挲衣角"
+    if emotion in {"surprised", "惊讶"}:
+        return "动作停住，抬眼确认信息，表情短暂失控"
+    if index >= total - 4:
+        return "语气放缓，与家人交换眼神，逐渐恢复平静"
+    return "保持生活化动作，根据对白自然转身、停顿或看向对方"
+
+
+def _shot_for_line(text: str, index: int, total: int) -> str:
+    if "哭" in text or "害怕" in text:
+        return "近景"
+    if index == 1 or index >= total - 2:
+        return "中远景"
+    if "你" in text or "妈" in text:
+        return "双人中景"
+    return "中景"
+
+
+def _sound_for_line(story: StoryScript, index: int, text: str) -> str:
+    effects = [effect.prompt for effect in story.sound_effects if effect.start_at_line == index or effect.start_at_line == index + 1]
+    effect_text = "；".join(effects[:2])
+    return f"对白清晰；室内底噪、衣料和餐桌细微声{('；' + effect_text) if effect_text else ''}"
+
+
+def _camera_move_for_line(index: int, emotion: str) -> str:
+    if emotion in {"angry", "愤怒"}:
+        return "缓慢推近"
+    if emotion in {"sad", "悲伤", "fearful"}:
+        return "轻微下摇"
+    return "平稳横移"
 
 
 def _overview(story: StoryScript, plan: dict[str, Any] | None) -> str:

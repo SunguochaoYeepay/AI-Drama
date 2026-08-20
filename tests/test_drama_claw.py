@@ -28,6 +28,16 @@ class DramaClawTests(unittest.TestCase):
         self.assertEqual(len(nodes[1]["data"]["scriptResult"]["rows"]), 2)
         self.assertEqual(edges, [{"id": "edge-story-overview-story-script", "source": "story-overview", "target": "story-script", "type": "default"}])
 
+    def test_script_rows_use_drama_claw_table_keys(self) -> None:
+        nodes, _ = build_canvas_nodes(self.story, None, {}, Path("outputs/test"))
+        row = nodes[1]["data"]["scriptResult"]["rows"][0]
+        self.assertEqual(row["shot_no"], 1)
+        self.assertEqual(row["character"], "角色甲")
+        self.assertTrue(row["visual_description"])
+        self.assertTrue(row["dialogue"].startswith("角色甲："))
+        self.assertTrue(row["shot_prompt"])
+        self.assertTrue(row["video_motion_prompt"])
+
     def test_client_unwraps_drama_claw_envelope(self) -> None:
         client = DramaClawClient("http://example.test")
         client._send = lambda request: {"id": "project-1", "name": "demo"}  # type: ignore[method-assign]
