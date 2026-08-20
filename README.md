@@ -35,6 +35,7 @@
 - 使用官方 Qwen Image Lightning 4 步工作流生成 1344×768 关键帧
 - 使用 MiniMax H3 官方提示词结构和 4 步 768p Turbo 工作流生成约 5 秒测试镜头
 - 调用 ComfyUI `/object_info` 检查节点，通过 `/prompt` 排队并自动下载图片或 MP4
+- 可将剧本、最终音频、关键帧、H3 镜头和视频提示词一键发布到 DramaClaw 自由画布
 
 ## 视频阶段
 
@@ -62,6 +63,23 @@ python3 -m ai_drama video-h3 \
 ```
 
 当前 4 步模板使用 H3 Turbo 官方推荐值：1344×768、124 帧、24fps、视频 shift 6、音频 shift 3。完整视频制作应先确认人物与代表性关键帧，再按字幕时间拆分镜头，不要直接批量生成整条故事。
+
+## 发布到 DramaClaw 自由画布
+
+DramaClaw 前端通常使用 `8080`，而 ComfyUI API 通常使用 `8188`。生成媒体后，可以把当前故事的可用结果上传到一个独立画布：
+
+```bash
+python3 -m ai_drama publish-canvas \
+  examples/family_money_argument.json \
+  examples/family_money_argument_video.json \
+  --project family_money_argument \
+  --canvas ai_drama_assets \
+  --dramaclaws-url http://100.82.50.123:8080
+```
+
+`--project` 可以填写 DramaClaw 项目名或项目 ID。项目不存在时会自动创建；同名画布会按当前结果更新，不会重复堆叠节点。默认读取 `outputs/<脚本文件名>/` 和对应的 `<脚本文件名>_video/video/`，缺少的媒体会跳过，但说明、剧本和视频计划仍会保存。
+
+打开命令输出的正式路由即可查看：`/projects/<项目ID>/freezone?canvas=<画布ID>`。该命令只上传 `outputs/` 中的生成结果，不会读取或提交 `.env`。
 
 ## 开始使用
 

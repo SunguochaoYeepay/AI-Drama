@@ -35,7 +35,16 @@ Read [official-workflows.md](references/official-workflows.md) before changing a
 
 10. Verify the MP4 with `ffprobe`, inspect representative frames, and listen for unwanted generated speech or music. Keep only useful local renders under ignored `outputs/`.
 11. After keyframe approval, generate the remaining shots, align them to the accepted SRT/audio, and perform lip sync as a separate controlled stage. Do not replace the accepted MiniMax Speech 2.8 dialogue with H3-generated speech unless the user requests a comparison.
-12. Run `python3 -m unittest discover -v`, the Skill validator, and `git diff --check` before publishing source changes.
+12. Publish the accepted artifacts to DramaClaw when a Freezone canvas is available:
+
+    ```bash
+    python3 -m ai_drama publish-canvas examples/<story>.json examples/<story>_video.json \
+      --project <project-name-or-id> --canvas ai_drama_assets \
+      --dramaclaws-url http://<host>:8080
+    ```
+
+    This creates deterministic nodes for the project note, script, final audio, available keyframes, H3 test shot, and video plan. It uploads only local outputs and writes the canvas through the official `/freezone/upload` and `/freezone/canvases/{canvas_id}` APIs.
+13. Run `python3 -m unittest discover -v`, the Skill validator, and `git diff --check` before publishing source changes.
 
 ## Guardrails
 
