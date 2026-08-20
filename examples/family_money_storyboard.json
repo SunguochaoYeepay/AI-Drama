@@ -1,0 +1,66 @@
+{
+  "schema_version": "ai-drama.storyboard.v1",
+  "source_package_id": "family-money-visual-quality-test-v1",
+  "title": "藏在账单里的三千块 · 调度九宫格",
+  "purpose": "只约束人物位置、朝向、动作起止状态和镜头方向，不约束写实美术风格。",
+  "location_map": {
+    "coordinate_system": "画面左到右为x轴，画面上到下为y轴；人物位置以客餐厅固定平面为准。",
+    "entrance_door": "左侧",
+    "dining_table": "中央",
+    "bedroom_door": "右侧",
+    "fixed_props": ["家庭账本", "黑色手机", "作业本", "铅笔", "陶瓷碗"],
+    "blocking_rules": [
+      "陈浩从左侧入户门进入，不跨过餐桌中心线到林悦一侧。",
+      "林悦主要在餐桌右侧活动；保护小宇时从右侧绕到孩子身边。",
+      "小宇全程先坐在餐桌边，直到结尾才靠近婆婆；不站到入户门区域。",
+      "婆婆只在1-4-01从右侧卧室门出现，之前镜头不得出现。",
+      "账本和手机在桌面上的左右关系保持稳定：手机靠近陈浩一侧，账本位于桌面中部。"
+    ]
+  },
+  "grids": [
+    {
+      "id": "family-money-grid-a",
+      "label": "A · 冲突升级与孩子害怕",
+      "image_file": "storyboards/family-money-grid-a.svg",
+      "cells": [
+        {"cell": 1, "shot_id": "1-1-01", "camera": "餐厅侧前方平视中远景", "in": "陈浩在左侧门口，林悦和小宇在中央餐桌", "out": "陈浩向桌边走，林悦抬头，小宇停笔"},
+        {"cell": 2, "shot_id": "1-1-02", "camera": "桌面侧方平视双人中景", "in": "陈浩到桌边，手机靠近账本", "out": "林悦半起身回头，陈浩手指靠近桌面，小宇观察"},
+        {"cell": 3, "shot_id": "1-2-01", "camera": "餐桌另一端平视中景", "in": "三人站位不变，林悦在桌右侧", "out": "林悦把账本推开并质问借款"},
+        {"cell": 4, "shot_id": "1-2-02", "camera": "林悦肩后平视陈浩中近景", "in": "林悦肩部在前景，陈浩在桌左侧", "out": "陈浩前倾压桌，林悦别脸，小宇低头"},
+        {"cell": 5, "shot_id": "1-3-01", "camera": "儿童坐姿平视小宇中近景", "in": "小宇仍坐在桌边，父母分居左右背景", "out": "小宇握铅笔发抖并看向父母"},
+        {"cell": 6, "shot_id": "1-3-02", "camera": "餐桌侧方平视三人中景", "in": "父母仍在桌两侧，孩子坐在桌边", "out": "林悦蹲到小宇身边，陈浩垂肩松手"},
+        {"cell": 7, "shot_id": null, "camera": "保留格，不生成", "in": "用于检查A段动作连续性", "out": "不添加新剧情"},
+        {"cell": 8, "shot_id": null, "camera": "保留格，不生成", "in": "用于人工标记重拍镜头", "out": "不添加新剧情"},
+        {"cell": 9, "shot_id": null, "camera": "保留格，不生成", "in": "用于后续备用", "out": "不添加新剧情"}
+      ]
+    },
+    {
+      "id": "family-money-grid-b",
+      "label": "B · 婆婆出场、真相与和解",
+      "image_file": "storyboards/family-money-grid-b.svg",
+      "cells": [
+        {"cell": 1, "shot_id": "1-4-01", "camera": "客厅侧方平视四人中远景", "in": "陈浩、林悦、小宇保持A段结尾位置，右侧卧室门关闭", "out": "卧室门打开，婆婆走向小宇"},
+        {"cell": 2, "shot_id": "1-4-02", "camera": "餐桌斜侧平视四人中景", "in": "婆婆已到小宇身边，父母在桌两侧", "out": "婆婆拍孩子后背并看向夫妻，陈浩惊讶，林悦低头"},
+        {"cell": 3, "shot_id": "1-5-01", "camera": "陈浩肩后平视夫妻对坐中景", "in": "婆婆和小宇在后方，夫妻坐到桌两侧", "out": "陈浩把手机推开，双手落桌并道歉"},
+        {"cell": 4, "shot_id": "1-5-02", "camera": "餐桌斜上方轻微俯视四人中远景", "in": "四人已围桌，账本在中央", "out": "婆婆转账本指向空白页，小宇靠近奶奶，家人看向账本"},
+        {"cell": 5, "shot_id": null, "camera": "保留格，不生成", "in": "用于检查婆婆出场后的空间连续性", "out": "不添加新剧情"},
+        {"cell": 6, "shot_id": null, "camera": "保留格，不生成", "in": "用于检查结尾人物关系", "out": "不添加新剧情"},
+        {"cell": 7, "shot_id": null, "camera": "保留格，不生成", "in": "用于人工标记重拍镜头", "out": "不添加新剧情"},
+        {"cell": 8, "shot_id": null, "camera": "保留格，不生成", "in": "用于后续备用", "out": "不添加新剧情"},
+        {"cell": 9, "shot_id": null, "camera": "保留格，不生成", "in": "用于后续备用", "out": "不添加新剧情"}
+      ]
+    }
+  ],
+  "continuity_chain": [
+    {"from_shot": "1-1-01", "to_shot": "1-1-02", "transition": "尾帧接力", "tail_state": "陈浩到桌边，林悦回头，小宇停笔"},
+    {"from_shot": "1-1-02", "to_shot": "1-2-01", "transition": "同场硬切或尾帧参考", "tail_state": "手机在账本旁，三人站位不变"},
+    {"from_shot": "1-2-01", "to_shot": "1-2-02", "transition": "角度硬切，动作状态继承", "tail_state": "账本已被推开，林悦正面对陈浩"},
+    {"from_shot": "1-2-02", "to_shot": "1-3-01", "transition": "视线切换，尾帧参考", "tail_state": "父母停住，争吵声压低，小宇成为焦点"},
+    {"from_shot": "1-3-01", "to_shot": "1-3-02", "transition": "尾帧接力", "tail_state": "小宇眼含泪，父母视线落向孩子"},
+    {"from_shot": "1-3-02", "to_shot": "1-4-01", "transition": "右侧卧室门方向硬切", "tail_state": "林悦护住小宇，陈浩垂肩，卧室门仍在右侧"},
+    {"from_shot": "1-4-01", "to_shot": "1-4-02", "transition": "尾帧接力", "tail_state": "婆婆到达小宇身边，准备安抚"},
+    {"from_shot": "1-4-02", "to_shot": "1-5-01", "transition": "动作停顿处硬切", "tail_state": "婆婆已说明检查费，陈浩由站转坐，林悦仍在对面"},
+    {"from_shot": "1-5-01", "to_shot": "1-5-02", "transition": "尾帧接力或轻微俯视硬切", "tail_state": "手机放到一边，账本打开，四人愿意共同查看"}
+  ],
+  "generation_instruction": "生成写实关键帧时，把对应SVG九宫格作为构图参考图；只参考人物位置、朝向、空间关系和镜头方向，不参考简笔画线条、颜色或画风。先生成关键帧并人工确认，再以视频尾帧作为下一镜头首图。"
+}

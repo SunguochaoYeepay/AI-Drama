@@ -65,6 +65,15 @@ python3 -m ai_drama video-h3 \
 
 当前 4 步模板使用 H3 Turbo 官方推荐值：1344×768、124 帧、24fps、视频 shift 6、音频 shift 3。完整视频制作应先确认人物与代表性关键帧，再按字幕时间拆分镜头，不要直接批量生成整条故事。
 
+### 调度九宫格与尾帧接力
+
+单图生视频按镜头分段时，先用 [`examples/family_money_storyboard.json`](examples/family_money_storyboard.json) 固定人物站位和镜头方向，再生成写实关键帧。两张可直接预览的简笔调度图位于 [`examples/storyboards/`](examples/storyboards/)：
+
+- `family-money-grid-a.svg`：1-1 到 1-3，陈浩进门、夫妻争执、小宇害怕。
+- `family-money-grid-b.svg`：1-4 到 1-5，婆婆从右侧卧室出场、说明检查费、四人围桌。
+
+九宫格只作为构图参考，不作为写实风格参考。生成下一镜头时，优先把上一段视频的尾帧作为首图，同时继续挂人物定妆图和客餐厅场景图。需要换角度时，在动作或台词停顿处硬切，并按 `continuity_chain` 继承人物位置、视线、手部状态和桌面道具。
+
 ## 发布到 DramaClaw 自由画布
 
 DramaClaw 前端通常使用 `8080`，而 ComfyUI API 通常使用 `8188`。生成媒体后，可以把当前故事的可用结果上传到一个独立画布：
