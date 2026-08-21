@@ -16,6 +16,7 @@ Read [realism.md](references/realism.md) before writing prompts. Read [model-pro
 - Use `婆婆` for the husband's mother in the family-money story. Do not replace it with `岳母`.
 - Keep one main visible action per frame. Do not turn a shot into a paragraph of invisible backstory.
 - Write prompts as connected, concrete sentences. State where each character starts, what single action occurs, and where the body/props end; this gives single-image-to-video a usable handoff instead of leaving the model to infer blocking from keywords.
+- If a shot has dialogue, name the speaker and include the exact spoken text in the visual/video prompt. State the speaking order when there are multiple lines, then describe non-speaking characters as listeners or reactors. Do not assume a `dialogue_ids` array will be read by an image/video model.
 - Use concrete camera and lighting language instead of abstract praise such as “最好看” or “高级感”.
 - Keep creative freedom in incidental background details, natural lighting variation, and small gestures, not in identity, clothing, geography, or story facts.
 - Do not blindly copy Stable Diffusion weighting syntax such as `(term:1.6)`. Qwen and Flux workflows may treat it as literal text or ignore it.
@@ -46,6 +47,8 @@ For a narrator or voice-only role, set `visual: false`; do not create a meaningl
 
 Create a clean location reference without characters. Specify spatial anchors that a camera can preserve: door position, table position, windows, dominant light source, and fixed props. Reuse the same location asset for all shots in that scene.
 
+Create separate reference images for recurring props that affect continuity: furniture, phones, ledgers, school materials, dishes, tools, or any object touched by a character. Give each asset a stable ID and attach the location and prop asset IDs to every dependent shot. Do not invent an asset URL; mark an ungenerated reference `pending_generation`.
+
 ### 4. Compile each shot prompt
 
 Write prompts in this order:
@@ -58,6 +61,8 @@ Write prompts in this order:
 6. expression and restrained emotion;
 7. props and spatial continuity;
 8. realism constraints and exclusions.
+
+Add a dialogue block after the action block: `说话者与台词必须明确：林悦说：“……”；陈浩说：“……”；当前画面优先表现说话者的自然嘴型和眼神，其余角色只做反应；最终对白以后期音轨为准。` For a silent shot, explicitly say that there is no dialogue and all characters keep their mouths naturally closed.
 
 Write a required `visual_description` that states what is visibly in the frame. `action` is supplementary and never replaces `visual_description`.
 
@@ -91,7 +96,7 @@ For DramaClaw import, every package should include:
 - top-level `schema_version: "ai-drama.production.v1"`;
 - top-level `source_package_id` for idempotent re-import;
 - `characters`, `locations`, `scenes`, `dialogues`, and `assets`;
-- every shot: `id`, `visual_description`, `characters`, `reference_assets`, `shot_type`, `action`, `emotion`, `keyframe_prompt`, `negative_prompt`, `video_prompt`, and `status`;
+- every shot: `id`, `visual_description`, `characters`, `reference_assets`, `location_reference_asset`, `prop_reference_assets`, `speaking_character_ids`, `dialogue_lines`, `dialogue_visual_prompt`, `shot_type`, `action`, `emotion`, `keyframe_prompt`, `negative_prompt`, `video_prompt`, and `status`;
 - optional `qwen_prompt`, `flux_prompt`, `h3_prompt`, `audio_asset_id`, `audio_start_ms`, and `audio_end_ms`.
 
 If an audio asset is not reachable by DramaClaw, omit its `audio_asset_id` rather than inventing a URL. The visual package must still be valid.

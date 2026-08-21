@@ -14,7 +14,7 @@ For the reusable realism and continuity prompt process, also read [../generate-a
 
 1. Inspect the current branch, working tree, story JSON, final audio, SRT, and existing video plan. Never expose `.env` values or commit generated media.
 2. Confirm the raw ComfyUI API endpoint. A frontend such as DramaClaw may use port `8080` while ComfyUI itself uses port `8188`; query `/system_stats` and `/object_info` before submitting work.
-3. Build one video plan under `examples/`. Define stable ages, faces, hair, clothing, location, and props once, then repeat those anchors verbatim in every keyframe prompt.
+3. Build one video plan under `examples/`. Define stable ages, faces, hair, clothing, location, and props once, then repeat those anchors verbatim in every keyframe prompt. Generate and approve the location plate and recurring prop reference images before generating dependent character/action frames.
 4. Split the accepted audio into shots using the SRT timing. Keep each H3 shot between 4 and 15 seconds and use 24 fps. Do not force a whole multi-minute drama into one generation.
 5. Generate a neutral character lineup first, then generate the opening and conflict keyframes. Use Qwen Image Edit with accepted references for full production when identity drift matters; a direct text-to-image frame is sufficient only for an initial pipeline test.
 6. Before batching keyframes, make a continuity table for adjacent shots. Record `continuity_in`, `continuity_out`, fixed character positions, facing direction, hand/prop state, door state, lighting, and the intended transition (`tail_frame_reference` or `hard_cut`). A prompt must describe the inherited state in ordinary connected sentences; do not rely on isolated keyword lists.
@@ -28,7 +28,7 @@ For the reusable realism and continuity prompt process, also read [../generate-a
    ```
 
 10. Inspect faces, hands, ages, clothing, composition, and continuity. Obtain user approval for the character lineup and representative keyframes before generating all shots.
-11. Write every H3 prompt with the exact official section names and order. For I2VA, anchor `<Picture 1>` at `0.00` seconds. Keep spoken dialogue out of a motion-only test when an accepted MiniMax Speech track will be synchronized later.
+11. Write every H3 prompt with the exact official section names and order. For I2VA, anchor `<Picture 1>` at `0.00` seconds. Include the exact speaker name and spoken line in the prompt, plus the speaking order for multiple lines. Describe the other characters as listeners/reactors. The H3 audio can be muted or replaced later, but the visual prompt must still direct who is speaking and what is being said.
 12. Run the first 5-second H3 test with the official 4-step 768p Turbo settings:
 
    ```bash

@@ -11,6 +11,8 @@
 3. [`generate-ai-drama-visuals`](SKILL/generate-ai-drama-visuals/SKILL.md)：为 Qwen、Flux 和 ComfyUI 生成真实、连续、可审核的人物、场景和关键帧提示词。
 4. [`generate-ai-drama-video`](SKILL/generate-ai-drama-video/SKILL.md)：使用已确认的关键帧和音频，分段生成 MiniMax H3 视频，并用尾帧接力保持连续。
 
+每个有对白的镜头都必须在提示词中明确写出“谁在说话”和“说什么”。`dialogue_ids` 只是程序引用，不能代替给 Qwen/Flux/H3 的自然语言指令。每个场景还要先生成并审核场景参考图，以及餐桌、手机、账本、作业本、餐具等连续性关键道具的参考图。
+
 支持 Skills 的 AI 可以直接使用：
 
 ```text
@@ -89,6 +91,8 @@ python3 -m ai_drama video-h3 \
 - `family-money-grid-b.svg`：1-4 到 1-5，婆婆从右侧卧室出场、说明检查费、四人围桌。
 
 九宫格只作为构图参考，不作为写实风格参考。生成下一镜头时，优先把上一段视频的尾帧作为首图，同时继续挂人物定妆图和客餐厅场景图。需要换角度时，在动作或台词停顿处硬切，并按 `continuity_chain` 继承人物位置、视线、手部状态和桌面道具。
+
+当前家庭故事制作包中的 `assets` 已定义客餐厅场景板、木质餐桌、家庭账本、黑色手机、作业本与铅笔、陶瓷碗六类参考资产，状态为 `pending_generation`，需要在 ComfyUI 中分别生成后再挂到对应镜头。没有可访问的真实文件地址时，不要填写虚构的 `url`。
 
 注意：`family_money_visual_quality_test.json` 才是 DramaClaw 的制作包；`family_money_storyboard.json` 是调度说明，格式为 `ai-drama.storyboard.v1`，不能通过制作包入口导入。两张 SVG 只作为画布中的位置参考图。
 
