@@ -282,13 +282,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_black_phone"
           ],
           "shot_type": "中远景",
           "camera_angle": "餐厅侧前方平视",
@@ -321,16 +316,12 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 林悦说：“回来啦？锅里还有汤，我去给你热一下。”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_homework_set",
             "prop_black_phone",
-            "prop_ceramic_bowls"
+            "prop_homework_set"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "作业本和铅笔",
             "黑色手机",
-            "陶瓷碗"
+            "作业本和铅笔"
           ]
         },
         {
@@ -346,13 +337,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_household_ledger"
           ],
           "shot_type": "双人中景",
           "camera_angle": "桌面侧方平视",
@@ -394,16 +380,12 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“先别忙。这个月家用卡里少了三千块，你转到哪儿去了？”；2. 林悦说：“你一进门就查账？陈浩，你这是在问我，还是在审我？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_homework_set",
-            "prop_black_phone",
-            "prop_household_ledger"
+            "prop_household_ledger",
+            "prop_black_phone"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "作业本和铅笔",
-            "黑色手机",
-            "家庭账本"
+            "家庭账本",
+            "黑色手机"
           ]
         }
       ]
@@ -430,13 +412,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_household_ledger"
           ],
           "shot_type": "双人中景带孩子",
           "camera_angle": "从餐桌另一端平视",
@@ -469,13 +446,9 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 林悦说：“那你呢？上周背着我转给老周五千块，怎么一个字都没提！”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_black_phone",
             "prop_household_ledger"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "黑色手机",
             "家庭账本"
           ]
         },
@@ -492,13 +465,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_household_ledger"
           ],
           "shot_type": "陈浩侧面中近景",
           "camera_angle": "林悦肩后平视",
@@ -539,16 +507,12 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“老周的店周转不开，月底就还。他以前帮过我，我总不能看着不管。”；2. 陈浩说：“别偷换概念。我问的是，那三千块到底去哪儿了？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_black_phone",
             "prop_household_ledger",
-            "prop_homework_set"
+            "prop_black_phone"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "黑色手机",
             "家庭账本",
-            "作业本和铅笔"
+            "黑色手机"
           ]
         }
       ]
@@ -575,13 +539,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_homework_set"
           ],
           "shot_type": "小宇中近景",
           "camera_angle": "儿童坐姿平视",
@@ -614,14 +573,10 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 小宇说：“爸爸，妈妈，你们别吵了。我害怕。”。画面当前优先表现小宇的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_homework_set",
-            "prop_black_phone"
+            "prop_homework_set"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "作业本和铅笔",
-            "黑色手机"
+            "作业本和铅笔"
           ]
         },
         {
@@ -637,13 +592,8 @@
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "apartment_dining_room_night",
             "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_homework_set"
           ],
           "shot_type": "三人中景",
           "camera_angle": "餐桌侧方平视",
@@ -685,16 +635,10 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“我不是想吓他。我只是每天算着还差多少钱，真的快喘不过气了。”；2. 林悦说：“我也会怕啊。怕孩子的费用不够，怕老人突然生病。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_homework_set",
-            "prop_black_phone",
-            "prop_household_ledger"
+            "prop_homework_set"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "作业本和铅笔",
-            "黑色手机",
-            "家庭账本"
+            "作业本和铅笔"
           ]
         }
       ]
@@ -723,13 +667,7 @@
             "lin_yue",
             "xiaoyu",
             "po_po",
-            "apartment_dining_room_night",
-            "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "location_plate_apartment_dining_room_night"
           ],
           "shot_type": "四人中远景",
           "camera_angle": "客厅侧方平视",
@@ -762,14 +700,10 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“行了！都把声音放低。小宇，来，奶奶抱。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "prop_homework_set"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "作业本和铅笔",
-            "陶瓷碗"
+            "作业本和铅笔"
           ]
         },
         {
@@ -787,13 +721,7 @@
             "lin_yue",
             "xiaoyu",
             "po_po",
-            "apartment_dining_room_night",
-            "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "location_plate_apartment_dining_room_night"
           ],
           "shot_type": "四人中景",
           "camera_angle": "餐桌斜侧平视",
@@ -826,14 +754,10 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“这钱，是给我做心脏检查的。上周我胸口发紧，是小悦陪我去的医院。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_homework_set"
+            "prop_household_ledger"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "家庭账本",
-            "作业本和铅笔"
+            "家庭账本"
           ]
         }
       ]
@@ -862,13 +786,7 @@
             "lin_yue",
             "xiaoyu",
             "po_po",
-            "apartment_dining_room_night",
-            "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "location_plate_apartment_dining_room_night"
           ],
           "shot_type": "夫妻对坐中景",
           "camera_angle": "陈浩肩后平视",
@@ -910,16 +828,12 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“小悦，对不起。我看到余额少了就慌了，没先问清楚。”；2. 林悦说：“那五千块的事，你也得给我一个交代。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
             "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set"
+            "prop_black_phone"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
             "家庭账本",
-            "黑色手机",
-            "作业本和铅笔"
+            "黑色手机"
           ]
         },
         {
@@ -937,13 +851,7 @@
             "lin_yue",
             "xiaoyu",
             "po_po",
-            "apartment_dining_room_night",
-            "location_plate_apartment_dining_room_night",
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set",
-            "prop_ceramic_bowls"
+            "location_plate_apartment_dining_room_night"
           ],
           "shot_type": "四人围桌中远景",
           "camera_angle": "餐桌斜上方轻微俯视",
@@ -976,16 +884,10 @@
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“钱少了，咱还能挣。人要是耽误了，多少钱都补不回来。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
           "prop_reference_assets": [
-            "prop_wooden_dining_table",
-            "prop_household_ledger",
-            "prop_black_phone",
-            "prop_homework_set"
+            "prop_household_ledger"
           ],
           "visible_prop_focus": [
-            "木质餐桌",
-            "家庭账本",
-            "黑色手机",
-            "作业本和铅笔"
+            "家庭账本"
           ]
         }
       ]
