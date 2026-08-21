@@ -47,7 +47,7 @@ For a narrator or voice-only role, set `visual: false`; do not create a meaningl
 
 Create a clean location reference without characters. Specify spatial anchors that a camera can preserve: door position, table position, windows, dominant light source, and fixed props. Reuse the same location asset for all shots in that scene.
 
-Create separate reference images for recurring props that affect continuity: furniture, phones, ledgers, school materials, dishes, tools, or any object touched by a character. Give each asset a stable ID and attach the location and prop asset IDs to every dependent shot. Do not invent an asset URL; mark an ungenerated reference `pending_generation`.
+Create separate multi-view reference sheets for recurring props that affect continuity: furniture, phones, ledgers, school materials, dishes, tools, or any object touched by a character. Each prop sheet should show the same object in at least six consistent views (front, three-quarter left, three-quarter right, side views, top, and a relevant detail) on a neutral seamless background with uniform studio lighting. Do not place the prop in the story room, on a table, or in a lifestyle scene; the isolated sheet is the identity reference, while the location plate controls the environment. Give each asset a stable ID and attach the location and prop asset IDs to every dependent shot. Do not invent an asset URL; mark an ungenerated reference `pending_generation`.
 
 ### 4. Compile each shot prompt
 
