@@ -98,7 +98,7 @@ python3 -m ai_drama video-h3 \
 
 关键帧的静态生图提示词（`keyframe_prompt`、`qwen_prompt`、`flux_prompt`）不承载完整台词和口型驱动，也不把所有道具一次性写进画面；只保留当前镜头真正可见的道具焦点。完整对白、说话顺序、运动和口型意图只放在 `video_prompt`/`h3_prompt`，避免 Qwen 或 Flux 在生图时被文字和过多物品分散注意力。
 
-同样不要一次关联全部参考图。`reference_assets` 是本次生成请求的输入，不是资产库存；单个 Qwen/Flux 镜头最多关联 5 张图，通常为 1 张场景板、当前可见人物和 0～1 张重点道具图。完整人物、场景和道具卡片仍保留在自由画布中，后续镜头按需选择。
+同样不要一次关联全部参考图。`reference_assets` 是本次生成请求的输入，不是资产库存；关键帧默认只关联 1 张场景板和当前可见人物，不关联道具图，最多 5 张。静态提示词必须按上游顺序写明 `@图片1=场景；@图片2=人物A；@图片3=人物B`，让 DramaClaw 的引用编号和 Qwen 输入保持一致。完整人物、场景和道具卡片仍保留在自由画布中，后续物品特写再单独选择。
 
 注意：`family_money_visual_quality_test.json` 才是 DramaClaw 的制作包；`family_money_storyboard.json` 是调度说明，格式为 `ai-drama.storyboard.v1`，不能通过制作包入口导入。两张 SVG 只作为画布中的位置参考图。
 

@@ -279,11 +279,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_black_phone"
+            "xiaoyu"
           ],
           "shot_type": "中远景",
           "camera_angle": "餐厅侧前方平视",
@@ -294,9 +293,9 @@
           "dialogue_ids": [
             "d001"
           ],
-          "keyframe_prompt": "写实中国家庭短剧首帧，夜晚，普通中国城市公寓客餐厅，16:9横构图，餐厅侧前方平视中远景，35mm镜头感，画面左侧是入户门，画面中部是木质餐桌，右侧能看到通往卧室的门。陈浩站在左侧门口，38岁偏瘦中国男性，短黑发，疲惫眼神，穿炭灰色工作夹克和暗蓝色衬衫，刚下班回家，右手握着手机，身体略微前倾但没有攻击性。林悦坐在餐桌右侧，35岁中国女性，深色及肩发松松束起，穿灰绿色针织开衫和米白色上衣，正在陪小宇写作业，听到开门声后抬头看向陈浩。小宇坐在林悦旁边，6岁男孩，短黑发，浅蓝色睡衣，手里握着铅笔，刚刚停止写字。暖色吸顶灯，低饱和家居，真实皮肤纹理，普通家庭陈设，人物脸部清楚，三个人互不遮挡，空间关系明确，克制自然表演，无字幕无文字无水印，无多余人物，无古装，无岳母，无畸形手指。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚普通城市公寓客餐厅，16:9，中远景，餐厅侧前方平视，35mm镜头感，左侧入户门，中部木质餐桌，右侧卧室门。陈浩，38岁偏瘦中国男性，短黑发，炭灰色工作夹克和暗蓝色衬衫，刚下班站在门口握手机，疲惫并压着情绪。林悦，35岁中国女性，深色及肩发松松束起，灰绿色针织开衫和米白色上衣，坐在桌边陪小宇写作业，听到开门声后抬头。小宇，6岁男孩，短黑发，浅蓝色睡衣，握铅笔并停止写字。暖色吸顶灯，低饱和，真实皮肤纹理，人物互不遮挡，空间关系清楚，克制自然表演，无文字无水印无多余人物无古装无岳母。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic live-action Chinese family drama, 16:9 medium-wide establishing shot from a level three-quarter view at the dining-room side, 35mm lens feeling. A modest lived-in Chinese city apartment at night: entrance door on the left, wooden dining table in the center, bedroom doorway on the right, warm ceiling light. Chen Hao, a slim 38-year-old Chinese man with short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt, has just entered and holds a phone at the doorway, slightly leaning forward with restrained tension. Lin Yue, a 35-year-old Chinese woman with dark shoulder-length hair loosely tied back, gray-green cardigan over an off-white shirt, sits at the right side of the table helping Xiao Yu with homework and looks up toward him. Xiao Yu, a 6-year-old Chinese boy with short black hair in light blue pajamas, has stopped writing and holds a pencil while looking cautiously at his father. The table clearly contains a homework notebook, pencils, two ceramic bowls, a household ledger and the phone. Natural skin texture, low-saturation home colors, clear faces, unobstructed three-person spatial relationship, restrained realistic acting, no subtitles, no text, no watermark, no extra people, no period costume, no mother-in-law in frame, no deformed hands. 林悦 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧首帧，夜晚，普通中国城市公寓客餐厅，16:9横构图，餐厅侧前方平视中远景，35mm镜头感，画面左侧是入户门，画面中部是木质餐桌，右侧能看到通往卧室的门。陈浩站在左侧门口，38岁偏瘦中国男性，短黑发，疲惫眼神，穿炭灰色工作夹克和暗蓝色衬衫，刚下班回家，右手握着手机，身体略微前倾但没有攻击性。林悦坐在餐桌右侧，35岁中国女性，深色及肩发松松束起，穿灰绿色针织开衫和米白色上衣，正在陪小宇写作业，听到开门声后抬头看向陈浩。小宇坐在林悦旁边，6岁男孩，短黑发，浅蓝色睡衣，手里握着铅笔，刚刚停止写字。暖色吸顶灯，低饱和家居，真实皮肤纹理，普通家庭陈设，人物脸部清楚，三个人互不遮挡，空间关系明确，克制自然表演，无字幕无文字无水印，无多余人物，无古装，无岳母，无畸形手指。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚普通城市公寓客餐厅，16:9，中远景，餐厅侧前方平视，35mm镜头感，左侧入户门，中部木质餐桌，右侧卧室门。陈浩，38岁偏瘦中国男性，短黑发，炭灰色工作夹克和暗蓝色衬衫，刚下班站在门口握手机，疲惫并压着情绪。林悦，35岁中国女性，深色及肩发松松束起，灰绿色针织开衫和米白色上衣，坐在桌边陪小宇写作业，听到开门声后抬头。小宇，6岁男孩，短黑发，浅蓝色睡衣，握铅笔并停止写字。暖色吸顶灯，低饱和，真实皮肤纹理，人物互不遮挡，空间关系清楚，克制自然表演，无文字无水印无多余人物无古装无岳母。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic live-action Chinese family drama, 16:9 medium-wide establishing shot from a level three-quarter view at the dining-room side, 35mm lens feeling. A modest lived-in Chinese city apartment at night: entrance door on the left, wooden dining table in the center, bedroom doorway on the right, warm ceiling light. Chen Hao, a slim 38-year-old Chinese man with short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt, has just entered and holds a phone at the doorway, slightly leaning forward with restrained tension. Lin Yue, a 35-year-old Chinese woman with dark shoulder-length hair loosely tied back, gray-green cardigan over an off-white shirt, sits at the right side of the table helping Xiao Yu with homework and looks up toward him. Xiao Yu, a 6-year-old Chinese boy with short black hair in light blue pajamas, has stopped writing and holds a pencil while looking cautiously at his father. The table clearly contains a homework notebook, pencils, two ceramic bowls, a household ledger and the phone. Natural skin texture, low-saturation home colors, clear faces, unobstructed three-person spatial relationship, restrained realistic acting, no subtitles, no text, no watermark, no extra people, no period costume, no mother-in-law in frame, no deformed hands. 林悦 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "古装，历史场景，办公室，豪宅，明星脸，时尚大片，夸张愤怒，打斗，哭泣，额外人物，婆婆提前出现，文字，字幕，水印，logo，重复人物，畸形手指，模糊脸，过度磨皮，过饱和，鱼眼变形",
           "video_prompt": "保持首帧中的人物身份、服装、场景布局和道具不变。陈浩从门口向餐桌方向缓慢走两步，手机抬到胸口高度但屏幕不可读；林悦从作业本上抬头并转动上半身看向他；小宇停止写字，慢慢放下铅笔，谨慎地看向父亲。摄影机以很小幅度缓慢前推，动作自然克制，不切镜，不新增人物，不改变服装，不出现字幕和可读文字。 说话者与台词必须明确：1. 林悦说：“回来啦？锅里还有汤，我去给你热一下。”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Live-action Chinese family drama, use the approved first frame as the exact visual reference. Preserve the identities, faces, clothing, positions, wooden table, homework notebook, bowls, ledger and phone. The tired father takes two restrained steps from the entrance toward the table and raises the phone to chest height with its screen unreadable. The mother pauses over the homework, turns her head and upper body toward him, and her expression becomes guarded. The boy stops writing, lowers the pencil and looks cautiously between both parents. Very subtle slow camera push-in, natural domestic motion, no hard cut, no new characters, no wardrobe changes, no subtitles, no readable text, no music, no intelligible speech. 说话者与台词必须明确：1. 林悦说：“回来啦？锅里还有汤，我去给你热一下。”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -315,10 +314,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 林悦说：“回来啦？锅里还有汤，我去给你热一下。”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_black_phone",
-            "prop_homework_set"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "黑色手机",
             "作业本和铅笔"
@@ -334,11 +330,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_household_ledger"
+            "xiaoyu"
           ],
           "shot_type": "双人中景",
           "camera_angle": "桌面侧方平视",
@@ -350,9 +345,9 @@
             "d002",
             "d003"
           ],
-          "keyframe_prompt": "写实中国家庭短剧双人中景，夜晚同一间普通中国城市公寓客餐厅，保持上一镜头完全一致的陈浩、林悦、小宇、服装、发型、木质餐桌、暖色吸顶灯和道具位置。50mm镜头感，桌面侧方平视。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "同一间夜晚客餐厅，同一组人物和服装，双人中景，50mm，桌面侧方平视。林悦从椅子旁起身，转身看向陈浩，礼貌表情变成受伤和防备。陈浩站在桌边，手机放在家庭账本旁，眉头收紧，手指轻敲桌面，压着怒气。小宇坐在桌边握着铅笔，紧张观察父母。真实中国家庭生活质感，暖色吸顶灯，低饱和，人物连续性，无文字无水印无多余人物无古装。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic continuation of the same Chinese family drama apartment and the exact same three characters, wardrobe and props. Level side view across the dining table, medium two-shot, 50mm lens feeling, static camera with subtle breathing. Lin Yue has started to rise from the chair and turns back toward Chen Hao, her polite expression becoming hurt and defensive. Chen Hao stands beside the table with the phone placed next to the household ledger, brow tightened, tapping one finger on the table while restraining his anger. Xiao Yu remains seated with a pencil in hand, nervously watching both parents. Homework notebook, pencils, ceramic bowls, ledger and phone remain clearly visible. Warm ceiling light, low-saturation lived-in home, natural skin texture, realistic restrained acting, no text, subtitles, watermark, extra people or period costume. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧双人中景，夜晚同一间普通中国城市公寓客餐厅，保持上一镜头完全一致的陈浩、林悦、小宇、服装、发型、木质餐桌、暖色吸顶灯和道具位置。50mm镜头感，桌面侧方平视。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "同一间夜晚客餐厅，同一组人物和服装，双人中景，50mm，桌面侧方平视。林悦从椅子旁起身，转身看向陈浩，礼貌表情变成受伤和防备。陈浩站在桌边，手机放在家庭账本旁，眉头收紧，手指轻敲桌面，压着怒气。小宇坐在桌边握着铅笔，紧张观察父母。真实中国家庭生活质感，暖色吸顶灯，低饱和，人物连续性，无文字无水印无多余人物无古装。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic continuation of the same Chinese family drama apartment and the exact same three characters, wardrobe and props. Level side view across the dining table, medium two-shot, 50mm lens feeling, static camera with subtle breathing. Lin Yue has started to rise from the chair and turns back toward Chen Hao, her polite expression becoming hurt and defensive. Chen Hao stands beside the table with the phone placed next to the household ledger, brow tightened, tapping one finger on the table while restraining his anger. Xiao Yu remains seated with a pencil in hand, nervously watching both parents. Homework notebook, pencils, ceramic bowls, ledger and phone remain clearly visible. Warm ceiling light, low-saturation lived-in home, natural skin texture, realistic restrained acting, no text, subtitles, watermark, extra people or period costume. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "人物换脸，服装变化，场景变化，婆婆出现，古装，暴力，打斗，夸张张嘴，字幕，文字，水印，logo，额外人物，重复肢体，畸形手指，过度磨皮",
           "video_prompt": "保持上一镜头的连续性。林悦起身半步，转身看向陈浩；陈浩把手机放到账本旁，手指轻敲桌面；小宇停止写字并在两人之间来回看。固定机位，只有细微的身体和眼神动作，情绪从日常转为紧张，不切镜，不改变人物和场景。 说话者与台词必须明确：1. 陈浩说：“先别忙。这个月家用卡里少了三千块，你转到哪儿去了？”；2. 林悦说：“你一进门就查账？陈浩，你这是在问我，还是在审我？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Use the approved keyframe as the exact first frame. Preserve the same faces, hair, wardrobe, apartment layout and tabletop props. Lin Yue rises halfway and turns toward Chen Hao, her expression changing from polite to hurt and guarded. Chen Hao places the phone beside the ledger and taps the tabletop once while keeping his anger restrained. Xiao Yu stops writing and looks between them. Static 50mm-style medium shot with only subtle natural body and eye movement, no cut, no new character, no costume change, no readable text or subtitles. 说话者与台词必须明确：1. 陈浩说：“先别忙。这个月家用卡里少了三千块，你转到哪儿去了？”；2. 林悦说：“你一进门就查账？陈浩，你这是在问我，还是在审我？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -379,10 +374,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“先别忙。这个月家用卡里少了三千块，你转到哪儿去了？”；2. 林悦说：“你一进门就查账？陈浩，你这是在问我，还是在审我？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger",
-            "prop_black_phone"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本",
             "黑色手机"
@@ -409,11 +401,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_household_ledger"
+            "xiaoyu"
           ],
           "shot_type": "双人中景带孩子",
           "camera_angle": "从餐桌另一端平视",
@@ -424,9 +415,9 @@
           "dialogue_ids": [
             "d004"
           ],
-          "keyframe_prompt": "写实中国家庭短剧，16:9横构图，夜晚普通中国城市公寓客餐厅，从木质餐桌另一端平视拍摄的50mm双人中景。暖色吸顶灯，普通略拥挤的家，未修饰的自然皮肤、轻微眼下疲惫、衣物细小褶皱，非摆拍，人物间距离真实，无文字无水印无多余人物无婆婆。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实家庭短剧关键帧，夜晚普通中国城市公寓客餐厅，16:9，50mm平视双人中景。保持陈浩、林悦、小宇与参考图完全一致的身份、发型和衣服。暖色顶灯，低饱和生活空间，自然皮肤纹理、轻微眼下疲惫、衣服褶皱，非摆拍，无文字无水印无额外人物无婆婆。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic continuation of the exact same lived-in Chinese apartment at night, 16:9 level medium two-shot from the far end of the wooden table, 50mm lens feeling. Preserve the identities, hair, wardrobe and positions from the reference images: Chen Hao, slim Chinese man, 38, short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt, stands on the left; Lin Yue, Chinese woman, 35, dark shoulder-length hair loosely tied, gray-green cardigan over an off-white top, stands on the right and gently pushes the household ledger aside while challenging him with restrained anger. Xiao Yu, six, in light-blue pajamas, sits at the table corner holding a pencil but has stopped working. The black phone stays beside the ledger; notebook, bowls and pencils remain in place. Warm practical ceiling light, low-saturation domestic color, unretouched skin, subtle under-eye variation, clothing wrinkles, candid blocking, no text, watermark, extra people, mother-in-law, glamour lighting or costume change. 林悦 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧，16:9横构图，夜晚普通中国城市公寓客餐厅，从木质餐桌另一端平视拍摄的50mm双人中景。暖色吸顶灯，普通略拥挤的家，未修饰的自然皮肤、轻微眼下疲惫、衣物细小褶皱，非摆拍，人物间距离真实，无文字无水印无多余人物无婆婆。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实家庭短剧关键帧，夜晚普通中国城市公寓客餐厅，16:9，50mm平视双人中景。保持陈浩、林悦、小宇与参考图完全一致的身份、发型和衣服。暖色顶灯，低饱和生活空间，自然皮肤纹理、轻微眼下疲惫、衣服褶皱，非摆拍，无文字无水印无额外人物无婆婆。当前画面只表现林悦作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic continuation of the exact same lived-in Chinese apartment at night, 16:9 level medium two-shot from the far end of the wooden table, 50mm lens feeling. Preserve the identities, hair, wardrobe and positions from the reference images: Chen Hao, slim Chinese man, 38, short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt, stands on the left; Lin Yue, Chinese woman, 35, dark shoulder-length hair loosely tied, gray-green cardigan over an off-white top, stands on the right and gently pushes the household ledger aside while challenging him with restrained anger. Xiao Yu, six, in light-blue pajamas, sits at the table corner holding a pencil but has stopped working. The black phone stays beside the ledger; notebook, bowls and pencils remain in place. Warm practical ceiling light, low-saturation domestic color, unretouched skin, subtle under-eye variation, clothing wrinkles, candid blocking, no text, watermark, extra people, mother-in-law, glamour lighting or costume change. 林悦 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "婆婆，额外人物，豪宅，办公室，西装，网红脸，浓妆，时尚写真，过度磨皮，夸张指人，打斗，文字，字幕，水印，logo，手指畸形，人物重复，服装变化，古装",
           "video_prompt": "锁定同一人物脸、服装、餐桌和道具。林悦把账本推开约十厘米后抬头直视陈浩；陈浩保持站姿，只轻微前倾；小宇握紧铅笔又放松。固定镜头，克制自然的眼神和手部动作，不切镜，不新增人物，不生成可读账本内容。 说话者与台词必须明确：1. 林悦说：“那你呢？上周背着我转给老周五千块，怎么一个字都没提！”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Use the approved keyframe as the exact visual reference. Preserve the same faces, wardrobe, wooden table and props. Lin Yue gently slides the ledger a short distance and looks directly at Chen Hao with restrained anger. Chen Hao leans forward slightly without aggression. Xiao Yu tightens then relaxes his grip on the pencil. Static natural 50mm family-drama shot, no cuts, no new people, no wardrobe drift, no readable text, subtitles, music or intelligible speech. 说话者与台词必须明确：1. 林悦说：“那你呢？上周背着我转给老周五千块，怎么一个字都没提！”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -445,9 +436,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 林悦说：“那你呢？上周背着我转给老周五千块，怎么一个字都没提！”。画面当前优先表现林悦的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本"
           ]
@@ -462,11 +451,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_household_ledger"
+            "xiaoyu"
           ],
           "shot_type": "陈浩侧面中近景",
           "camera_angle": "林悦肩后平视",
@@ -478,9 +466,9 @@
             "d005",
             "d006"
           ],
-          "keyframe_prompt": "写实中国家庭短剧连续镜头，16:9，65mm镜头感，从林悦肩后平视拍陈浩的侧面中近景，林悦的灰绿色开衫肩部只在前景虚焦一点点，不能遮挡人物。画面右侧林悦侧过脸，双手抓住开衫下摆；桌边的小宇低头看作业本。保持普通中国城市公寓的左侧入户门、右侧卧室门、暖色顶灯和桌面道具连续。自然皮肤纹理，发丝和衣物褶皱，真实家庭争执中的不完美姿态，无文字无水印无多余人物无婆婆。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，林悦肩后平视，65mm陈浩侧面中近景。陈浩保持短黑发、炭灰色工作夹克、暗蓝色衬衫和疲惫普通上班族面孔，站在木桌左侧微微前倾，一只手掌压住桌沿，看向林悦，焦虑又压着怒气，不吼叫不攻击。手机和家庭账本在两人之间。林悦在右侧侧过脸，双手抓住开衫衣角；小宇低头看作业本。暖色顶灯、自然皮肤和衣物褶皱、非摆拍的普通家庭室内，无文字无水印无额外人物无婆婆。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic Chinese family drama continuation, 16:9, level over-the-shoulder medium close shot from behind Lin Yue, 65mm lens feeling. Chen Hao is unchanged: a slim 38-year-old Chinese man with short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt. He stands at the left side of the wooden table, leans forward slightly, one open hand resting naturally on the table edge, looking past the phone and household ledger toward Lin Yue with anxious restrained anger, never shouting or threatening. Lin Yue turns her face away at the right edge, holding the hem of her cardigan. Xiao Yu looks down at his homework. Preserve the warm ceiling light, entrance-left/bedroom-right apartment layout and tabletop props. Natural skin texture, flyaway hair, small fabric wrinkles, imperfect believable posture, no text, subtitles, watermark, extra people, mother-in-law, beauty-ad lighting or violence. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧连续镜头，16:9，65mm镜头感，从林悦肩后平视拍陈浩的侧面中近景，林悦的灰绿色开衫肩部只在前景虚焦一点点，不能遮挡人物。画面右侧林悦侧过脸，双手抓住开衫下摆；桌边的小宇低头看作业本。保持普通中国城市公寓的左侧入户门、右侧卧室门、暖色顶灯和桌面道具连续。自然皮肤纹理，发丝和衣物褶皱，真实家庭争执中的不完美姿态，无文字无水印无多余人物无婆婆。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，林悦肩后平视，65mm陈浩侧面中近景。陈浩保持短黑发、炭灰色工作夹克、暗蓝色衬衫和疲惫普通上班族面孔，站在木桌左侧微微前倾，一只手掌压住桌沿，看向林悦，焦虑又压着怒气，不吼叫不攻击。手机和家庭账本在两人之间。林悦在右侧侧过脸，双手抓住开衫衣角；小宇低头看作业本。暖色顶灯、自然皮肤和衣物褶皱、非摆拍的普通家庭室内，无文字无水印无额外人物无婆婆。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic Chinese family drama continuation, 16:9, level over-the-shoulder medium close shot from behind Lin Yue, 65mm lens feeling. Chen Hao is unchanged: a slim 38-year-old Chinese man with short black hair, tired ordinary face, charcoal work jacket over a dark navy shirt. He stands at the left side of the wooden table, leans forward slightly, one open hand resting naturally on the table edge, looking past the phone and household ledger toward Lin Yue with anxious restrained anger, never shouting or threatening. Lin Yue turns her face away at the right edge, holding the hem of her cardigan. Xiao Yu looks down at his homework. Preserve the warm ceiling light, entrance-left/bedroom-right apartment layout and tabletop props. Natural skin texture, flyaway hair, small fabric wrinkles, imperfect believable posture, no text, subtitles, watermark, extra people, mother-in-law, beauty-ad lighting or violence. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "暴力，砸手机，挥拳，夸张吼叫，婆婆，额外人物，人物换脸，西装，豪宅，舞台灯光，塑料皮肤，字幕，文字，水印，logo，畸形手，古装",
           "video_prompt": "保持关键帧的空间与人物连续。陈浩只向前倾一点，压着桌沿的手指慢慢收紧再松开；林悦别开脸、轻微呼吸；小宇更低地看向作业本。镜头极轻微前推，禁止激烈肢体动作、切镜和人物变化。 说话者与台词必须明确：1. 陈浩说：“老周的店周转不开，月底就还。他以前帮过我，我总不能看着不管。”；2. 陈浩说：“别偷换概念。我问的是，那三千块到底去哪儿了？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Preserve the approved reference faces, hairstyles, clothes, table layout and lighting. Chen Hao leans forward a few centimeters, his fingers briefly tighten then relax on the table edge. Lin Yue looks away with a small breath. Xiao Yu lowers his eyes further to the notebook. Very subtle slow push-in, realistic restrained domestic tension, no violence, no cuts, no new character, no readable text or subtitles. 说话者与台词必须明确：1. 陈浩说：“老周的店周转不开，月底就还。他以前帮过我，我总不能看着不管。”；2. 陈浩说：“别偷换概念。我问的是，那三千块到底去哪儿了？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -506,10 +494,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“老周的店周转不开，月底就还。他以前帮过我，我总不能看着不管。”；2. 陈浩说：“别偷换概念。我问的是，那三千块到底去哪儿了？”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger",
-            "prop_black_phone"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本",
             "黑色手机"
@@ -536,11 +521,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_homework_set"
+            "xiaoyu"
           ],
           "shot_type": "小宇中近景",
           "camera_angle": "儿童坐姿平视",
@@ -551,9 +535,9 @@
           "dialogue_ids": [
             "d007"
           ],
-          "keyframe_prompt": "写实中国家庭短剧，16:9，儿童坐姿平视的65mm中近景，焦点在小宇。画面左右后方浅景深中能辨认陈浩与林悦分别停在餐桌两侧：陈浩的炭灰工作夹克、林悦的灰绿色开衫必须保持一致，但两人不抢焦点。暖色实际顶灯，真实儿童皮肤、细小发丝、普通生活环境，瞬间抓拍感，无文字无水印无婆婆无额外人物。当前画面只表现小宇作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，儿童坐姿平视，65mm小宇中近景。背景左右失焦但能辨认陈浩的炭灰工作夹克和林悦的灰绿色开衫，两人都停住。暖色顶灯、自然儿童皮肤和发丝、真实生活抓拍，无文字无水印无婆婆无额外人物。当前画面只表现小宇作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic live-action Chinese family drama, 16:9 child eye-level medium close shot with a 65mm lens feel, focus on Xiao Yu. He is the same six-year-old Chinese boy with short black hair and a natural round child face, wearing light-blue pajamas. He sits at the wooden table, one sleeve lightly resting on his homework, both hands around a pencil, the first small tears in his eyes as he looks fearfully toward his parents, not a theatrical crying face. In the soft background, Chen Hao's charcoal work jacket and Lin Yue's gray-green cardigan are recognizable on opposite sides of the table; both have stopped moving. Ledger, black phone, bowls and homework items stay in place. Warm practical ceiling light, real child skin and fine hair, candid domestic moment, no text, watermark, extra people or mother-in-law. 小宇 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧，16:9，儿童坐姿平视的65mm中近景，焦点在小宇。画面左右后方浅景深中能辨认陈浩与林悦分别停在餐桌两侧：陈浩的炭灰工作夹克、林悦的灰绿色开衫必须保持一致，但两人不抢焦点。暖色实际顶灯，真实儿童皮肤、细小发丝、普通生活环境，瞬间抓拍感，无文字无水印无婆婆无额外人物。当前画面只表现小宇作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，儿童坐姿平视，65mm小宇中近景。背景左右失焦但能辨认陈浩的炭灰工作夹克和林悦的灰绿色开衫，两人都停住。暖色顶灯、自然儿童皮肤和发丝、真实生活抓拍，无文字无水印无婆婆无额外人物。当前画面只表现小宇作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic live-action Chinese family drama, 16:9 child eye-level medium close shot with a 65mm lens feel, focus on Xiao Yu. He is the same six-year-old Chinese boy with short black hair and a natural round child face, wearing light-blue pajamas. He sits at the wooden table, one sleeve lightly resting on his homework, both hands around a pencil, the first small tears in his eyes as he looks fearfully toward his parents, not a theatrical crying face. In the soft background, Chen Hao's charcoal work jacket and Lin Yue's gray-green cardigan are recognizable on opposite sides of the table; both have stopped moving. Ledger, black phone, bowls and homework items stay in place. Warm practical ceiling light, real child skin and fine hair, candid domestic moment, no text, watermark, extra people or mother-in-law. 小宇 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "夸张大哭，成人化儿童，卡通，婆婆，额外人物，人物换脸，塑料皮肤，舞台灯光，字幕，文字，水印，logo，畸形手，古装",
           "video_prompt": "小宇先看向左侧父亲再看向右侧母亲，握铅笔的手轻微发抖，眼泪慢慢积起。背景中的父母停住动作并把视线落向孩子。保持固定机位和自然时长，不切镜，不出现新人物。 说话者与台词必须明确：1. 小宇说：“爸爸，妈妈，你们别吵了。我害怕。”。画面当前优先表现小宇的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Use the approved frame and preserve the same child, parents, clothes and apartment. Xiao Yu glances from his father to his mother, his hands tremble slightly around the pencil and tears slowly gather. Both parents in the background become still and look toward him. Static child-eye-level shot, natural restrained motion, no cut, no new character, no text, subtitles, music or intelligible speech. 说话者与台词必须明确：1. 小宇说：“爸爸，妈妈，你们别吵了。我害怕。”。画面当前优先表现小宇的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -572,9 +556,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 小宇说：“爸爸，妈妈，你们别吵了。我害怕。”。画面当前优先表现小宇的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_homework_set"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "作业本和铅笔"
           ]
@@ -589,11 +571,10 @@
             "xiaoyu"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
-            "xiaoyu",
-            "location_plate_apartment_dining_room_night",
-            "prop_homework_set"
+            "xiaoyu"
           ],
           "shot_type": "三人中景",
           "camera_angle": "餐桌侧方平视",
@@ -605,9 +586,9 @@
             "d008",
             "d009"
           ],
-          "keyframe_prompt": "写实中国家庭短剧连续关键帧，16:9，餐桌侧方平视的40mm三人中景。林悦保持35岁普通中国母亲的自然面孔、松松束起的深色及肩发、灰绿色针织开衫和米白上衣，蹲在小宇身边，一只手轻放在孩子肩膀上，身体形成保护但不夸张的姿态。小宇坐在餐桌旁，浅蓝色睡衣，含着眼泪低头。陈浩仍穿炭灰工作夹克和暗蓝衬衫，站在餐桌对面，肩膀垂下来，手从账本旁的手机边松开，低头看孩子，神情疲惫而后悔。自然皮肤纹理、衣物褶皱、不完美真实姿态，无文字无水印无婆婆无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，40mm餐桌侧方平视三人中景。林悦穿灰绿色针织开衫，蹲在小宇身边，一只手轻放孩子肩膀，保护但不夸张；小宇穿浅蓝色睡衣，含泪低头。陈浩穿炭灰工作夹克和暗蓝衬衫，站在餐桌对面，肩膀垂下，手从手机旁松开，低头看孩子，疲惫后悔。暖色顶灯，普通中国家庭，真实皮肤、头发和衣物褶皱，克制自然表演，无文字无水印无婆婆无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic continuation, 16:9 level side view by the dining table, three-person medium shot, 40mm lens feeling. Preserve the exact same Chinese family and apartment. Lin Yue, 35, gray-green cardigan, loosely tied shoulder-length dark hair, crouches beside Xiao Yu and rests one hand lightly on his shoulder in a protective but unposed gesture. Xiao Yu sits in light-blue pajamas, tearful and looking down. Across the table Chen Hao, 38, charcoal work jacket over dark navy shirt, lets his shoulders drop and loosens his hand beside the phone and ledger, looking down at his son with exhausted regret. Keep homework, pencil, bowls, ledger and phone continuous. Warm practical home light, natural skin texture, wrinkles in the clothes, believable imperfect posture, no text, watermark, mother-in-law, extra people, violence or glamour lighting. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧连续关键帧，16:9，餐桌侧方平视的40mm三人中景。林悦保持35岁普通中国母亲的自然面孔、松松束起的深色及肩发、灰绿色针织开衫和米白上衣，蹲在小宇身边，一只手轻放在孩子肩膀上，身体形成保护但不夸张的姿态。小宇坐在餐桌旁，浅蓝色睡衣，含着眼泪低头。陈浩仍穿炭灰工作夹克和暗蓝衬衫，站在餐桌对面，肩膀垂下来，手从账本旁的手机边松开，低头看孩子，神情疲惫而后悔。自然皮肤纹理、衣物褶皱、不完美真实姿态，无文字无水印无婆婆无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，40mm餐桌侧方平视三人中景。林悦穿灰绿色针织开衫，蹲在小宇身边，一只手轻放孩子肩膀，保护但不夸张；小宇穿浅蓝色睡衣，含泪低头。陈浩穿炭灰工作夹克和暗蓝衬衫，站在餐桌对面，肩膀垂下，手从手机旁松开，低头看孩子，疲惫后悔。暖色顶灯，普通中国家庭，真实皮肤、头发和衣物褶皱，克制自然表演，无文字无水印无婆婆无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic continuation, 16:9 level side view by the dining table, three-person medium shot, 40mm lens feeling. Preserve the exact same Chinese family and apartment. Lin Yue, 35, gray-green cardigan, loosely tied shoulder-length dark hair, crouches beside Xiao Yu and rests one hand lightly on his shoulder in a protective but unposed gesture. Xiao Yu sits in light-blue pajamas, tearful and looking down. Across the table Chen Hao, 38, charcoal work jacket over dark navy shirt, lets his shoulders drop and loosens his hand beside the phone and ledger, looking down at his son with exhausted regret. Keep homework, pencil, bowls, ledger and phone continuous. Warm practical home light, natural skin texture, wrinkles in the clothes, believable imperfect posture, no text, watermark, mother-in-law, extra people, violence or glamour lighting. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "婆婆，额外人物，拥抱摆拍，夸张哭泣，跪地，暴力，豪宅，人物换脸，塑料皮肤，字幕，文字，水印，logo，畸形肢体，古装",
           "video_prompt": "林悦缓慢蹲下并把手轻放在小宇肩上；陈浩松开靠近手机的手，肩膀垂下来。小宇吸一口气后低头。镜头轻微后拉，保持克制和安静，不切镜，不改变任何人物、服装或道具。 说话者与台词必须明确：1. 陈浩说：“我不是想吓他。我只是每天算着还差多少钱，真的快喘不过气了。”；2. 林悦说：“我也会怕啊。怕孩子的费用不够，怕老人突然生病。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Preserve the exact approved faces, wardrobe, table and props. Lin Yue slowly crouches and rests her hand lightly on Xiao Yu's shoulder. Chen Hao releases his hand beside the phone and lets his shoulders drop. Xiao Yu takes a small breath and lowers his gaze. Gentle minimal pull-back, quiet realistic domestic acting, no cuts, no new people, no text or subtitles. 说话者与台词必须明确：1. 陈浩说：“我不是想吓他。我只是每天算着还差多少钱，真的快喘不过气了。”；2. 林悦说：“我也会怕啊。怕孩子的费用不够，怕老人突然生病。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -634,9 +615,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“我不是想吓他。我只是每天算着还差多少钱，真的快喘不过气了。”；2. 林悦说：“我也会怕啊。怕孩子的费用不够，怕老人突然生病。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_homework_set"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "作业本和铅笔"
           ]
@@ -663,11 +642,11 @@
             "po_po"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "po_po",
-            "location_plate_apartment_dining_room_night"
+            "po_po"
           ],
           "shot_type": "四人中远景",
           "camera_angle": "客厅侧方平视",
@@ -678,9 +657,9 @@
           "dialogue_ids": [
             "d010"
           ],
-          "keyframe_prompt": "婆婆首次出场，必须是陈浩62岁的母亲、小宇的奶奶，不是岳母：黑白相间短发，普通有皱纹的中国老人脸，暗红色开衫、深色碎花衬衫、深色长裤，从右侧卧室门快步走向小宇，双手伸向孩子准备安抚。小宇仍坐在餐桌旁；陈浩穿炭灰夹克站在左侧，林悦穿灰绿色开衫站在右侧，两人安静看向婆婆。非摆拍，真实家居和皮肤纹理，衣物自然褶皱，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，35mm四人中远景。右侧卧室门刚打开，婆婆首次出现：62岁中国女性，陈浩的母亲、小宇的奶奶，黑白相间短发，暗红色开衫和深色碎花衬衫，从卧室快步走向餐桌旁的小宇，双手准备安抚孩子。陈浩穿炭灰工作夹克站左侧，林悦穿灰绿色开衫站右侧，两人停止争执看向婆婆。自然老人皱纹和皮肤、普通略拥挤家居、非摆拍，无文字无水印无额外人物，不要岳母不要古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic Chinese family drama, 16:9 level medium-wide shot from the living-room side, 35mm lens feeling. Preserve the same modest apartment: wooden table in the center, entrance left, bedroom doorway right, warm ceiling light and continuous ledger, phone, notebook, pencils and bowls. The right bedroom door has just opened. Chen Hao's 62-year-old mother, Xiao Yu's grandmother, first appears from that doorway: a Chinese woman with short salt-and-pepper hair, an ordinary wrinkled face, dark red cardigan over a dark floral shirt and dark trousers. She walks quickly but naturally toward Xiao Yu with both hands ready to comfort him. Xiao Yu sits by the table; Chen Hao in his charcoal work jacket stands left and Lin Yue in her gray-green cardigan stands right, both quiet and watching her. Candid domestic blocking, natural elderly skin, realistic fabric, no text, watermark, extra people, historical costume or mother-in-law role confusion. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "婆婆首次出场，必须是陈浩62岁的母亲、小宇的奶奶，不是岳母：黑白相间短发，普通有皱纹的中国老人脸，暗红色开衫、深色碎花衬衫、深色长裤，从右侧卧室门快步走向小宇，双手伸向孩子准备安抚。小宇仍坐在餐桌旁；陈浩穿炭灰夹克站在左侧，林悦穿灰绿色开衫站在右侧，两人安静看向婆婆。非摆拍，真实家居和皮肤纹理，衣物自然褶皱，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，35mm四人中远景。右侧卧室门刚打开，婆婆首次出现：62岁中国女性，陈浩的母亲、小宇的奶奶，黑白相间短发，暗红色开衫和深色碎花衬衫，从卧室快步走向餐桌旁的小宇，双手准备安抚孩子。陈浩穿炭灰工作夹克站左侧，林悦穿灰绿色开衫站右侧，两人停止争执看向婆婆。自然老人皱纹和皮肤、普通略拥挤家居、非摆拍，无文字无水印无额外人物，不要岳母不要古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic Chinese family drama, 16:9 level medium-wide shot from the living-room side, 35mm lens feeling. Preserve the same modest apartment: wooden table in the center, entrance left, bedroom doorway right, warm ceiling light and continuous ledger, phone, notebook, pencils and bowls. The right bedroom door has just opened. Chen Hao's 62-year-old mother, Xiao Yu's grandmother, first appears from that doorway: a Chinese woman with short salt-and-pepper hair, an ordinary wrinkled face, dark red cardigan over a dark floral shirt and dark trousers. She walks quickly but naturally toward Xiao Yu with both hands ready to comfort him. Xiao Yu sits by the table; Chen Hao in his charcoal work jacket stands left and Lin Yue in her gray-green cardigan stands right, both quiet and watching her. Candid domestic blocking, natural elderly skin, realistic fabric, no text, watermark, extra people, historical costume or mother-in-law role confusion. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "岳母，年轻老人，贵妇，长白发，古装，额外人物，豪宅，夸张奔跑，人物换脸，字幕，文字，水印，logo，畸形手，过度磨皮",
           "video_prompt": "右侧卧室门缓慢打开，婆婆走两步到小宇身边并弯下身伸手安抚；陈浩和林悦停止动作看过去。镜头只做小幅跟随，保持同一空间和服装，不切镜，不出现其他人或可读文字。 说话者与台词必须明确：1. 婆婆说：“行了！都把声音放低。小宇，来，奶奶抱。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Preserve all approved identities, wardrobe, apartment geometry and table props. The bedroom door on the right opens. Chen Hao's mother, the boy's grandmother, walks two natural steps toward Xiao Yu and bends slightly with her hands ready to comfort him. Chen Hao and Lin Yue become still and look toward her. Small gentle camera follow, no cuts, no extra people, no role change, no text or subtitles. 说话者与台词必须明确：1. 婆婆说：“行了！都把声音放低。小宇，来，奶奶抱。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -699,9 +678,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“行了！都把声音放低。小宇，来，奶奶抱。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_homework_set"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "作业本和铅笔"
           ]
@@ -717,11 +694,11 @@
             "po_po"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "po_po",
-            "location_plate_apartment_dining_room_night"
+            "po_po"
           ],
           "shot_type": "四人中景",
           "camera_angle": "餐桌斜侧平视",
@@ -732,9 +709,9 @@
           "dialogue_ids": [
             "d011"
           ],
-          "keyframe_prompt": "写实中国家庭短剧，16:9，45mm餐桌斜侧平视四人中景。保持所有角色与上一帧相同的脸、发型和衣服。婆婆，62岁陈浩的母亲，暗红开衫和深色碎花衬衫，坐在小宇身边，一只手轻拍穿浅蓝睡衣的小宇后背，另一只手自然放在腿上，抬头平静而严肃地看向年轻夫妻。陈浩穿炭灰色工作夹克站在餐桌左侧，表情从怒气变成突然的惊讶；林悦穿灰绿色针织开衫站在右侧，低头捏住手指。暖色顶灯，普通家庭的真实皮肤、年龄痕迹、衣物褶皱和克制表演，无文字无水印无额外人物。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，45mm四人中景。婆婆是陈浩62岁的母亲，穿暗红开衫和深色碎花衬衫，坐在小宇身边，一只手轻拍浅蓝睡衣小宇的后背，抬头平静严肃地对年轻夫妻说明心脏检查。陈浩穿炭灰工作夹克站餐桌左侧，惊讶地停住；林悦穿灰绿色开衫站右侧，低头捏手指。暖色顶灯，自然皮肤与老人年龄痕迹，克制生活化表演，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic continuation of the same Chinese family drama apartment, 16:9 level diagonal medium shot across the table, 45mm lens feeling. Preserve every approved face, hair and costume. Chen Hao's mother, 62, in the dark red cardigan and dark floral shirt, sits beside Xiao Yu and gently pats the back of the boy in light-blue pajamas. Her other hand rests naturally on her lap as she looks up calmly but firmly at the couple. Chen Hao in a charcoal work jacket stands on the left, his anger replaced by sudden surprise. Lin Yue in the gray-green cardigan stands on the right, looking down and lightly holding her own fingers. Ledger, black phone, notebook, pencil and ceramic bowls remain on the table; the bedroom door stays slightly open on the right. Warm practical ceiling light, natural age detail, unretouched skin, fabric wrinkles, restrained live-action performance, no text, watermark, extra people or period costume. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧，16:9，45mm餐桌斜侧平视四人中景。保持所有角色与上一帧相同的脸、发型和衣服。婆婆，62岁陈浩的母亲，暗红开衫和深色碎花衬衫，坐在小宇身边，一只手轻拍穿浅蓝睡衣的小宇后背，另一只手自然放在腿上，抬头平静而严肃地看向年轻夫妻。陈浩穿炭灰色工作夹克站在餐桌左侧，表情从怒气变成突然的惊讶；林悦穿灰绿色针织开衫站在右侧，低头捏住手指。暖色顶灯，普通家庭的真实皮肤、年龄痕迹、衣物褶皱和克制表演，无文字无水印无额外人物。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，45mm四人中景。婆婆是陈浩62岁的母亲，穿暗红开衫和深色碎花衬衫，坐在小宇身边，一只手轻拍浅蓝睡衣小宇的后背，抬头平静严肃地对年轻夫妻说明心脏检查。陈浩穿炭灰工作夹克站餐桌左侧，惊讶地停住；林悦穿灰绿色开衫站右侧，低头捏手指。暖色顶灯，自然皮肤与老人年龄痕迹，克制生活化表演，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic continuation of the same Chinese family drama apartment, 16:9 level diagonal medium shot across the table, 45mm lens feeling. Preserve every approved face, hair and costume. Chen Hao's mother, 62, in the dark red cardigan and dark floral shirt, sits beside Xiao Yu and gently pats the back of the boy in light-blue pajamas. Her other hand rests naturally on her lap as she looks up calmly but firmly at the couple. Chen Hao in a charcoal work jacket stands on the left, his anger replaced by sudden surprise. Lin Yue in the gray-green cardigan stands on the right, looking down and lightly holding her own fingers. Ledger, black phone, notebook, pencil and ceramic bowls remain on the table; the bedroom door stays slightly open on the right. Warm practical ceiling light, natural age detail, unretouched skin, fabric wrinkles, restrained live-action performance, no text, watermark, extra people or period costume. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "岳母，夸张抱紧，煽情大哭，医院场景，豪宅，人物换脸，年轻化老人，塑料皮肤，字幕，文字，水印，logo，额外人物，古装，畸形手",
           "video_prompt": "婆婆轻拍小宇后背两下并抬头说话；陈浩从紧绷变成愣住，林悦低头捏住手指。固定镜头，所有动作很小，保持桌面道具和门的位置，不切镜，不新增人物。 说话者与台词必须明确：1. 婆婆说：“这钱，是给我做心脏检查的。上周我胸口发紧，是小悦陪我去的医院。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Use the approved keyframe as the exact visual reference. The grandmother gently pats Xiao Yu's back twice and raises her eyes as she speaks. Chen Hao's tense expression turns to still surprise; Lin Yue lowers her eyes and lightly holds her fingers. Static realistic medium shot, minimal natural gestures, no cuts, no new people, no text, subtitles, music or intelligible speech. 说话者与台词必须明确：1. 婆婆说：“这钱，是给我做心脏检查的。上周我胸口发紧，是小悦陪我去的医院。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -753,9 +730,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“这钱，是给我做心脏检查的。上周我胸口发紧，是小悦陪我去的医院。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本"
           ]
@@ -782,11 +757,11 @@
             "po_po"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "po_po",
-            "location_plate_apartment_dining_room_night"
+            "po_po"
           ],
           "shot_type": "夫妻对坐中景",
           "camera_angle": "陈浩肩后平视",
@@ -798,9 +773,9 @@
             "d012",
             "d013"
           ],
-          "keyframe_prompt": "写实中国家庭短剧收束段，16:9，陈浩肩后平视50mm夫妻对坐中景。陈浩保持38岁偏瘦普通中国男性、短黑发、炭灰色工作夹克和暗蓝色衬衫，坐在桌左侧，把黑色手机推到一边，双手平放桌面，稍微前倾，真诚但不戏剧化地看着林悦。林悦保持35岁自然面孔、松松束起深色及肩发、灰绿色针织开衫和米白上衣，坐在对面，眼里还有疲惫，认真听。后方同一空间中，婆婆穿暗红开衫坐在小宇旁边，小宇安静些但不必笑。真实皮肤纹理、微小衣物褶皱、未摆拍姿势、低饱和家居，无文字无水印无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，陈浩肩后平视50mm夫妻对坐中景。木桌中间摊开家庭账本。陈浩穿炭灰工作夹克和暗蓝衬衫，坐桌左侧，把黑色手机推到一边，双手平放桌面，稍微前倾，真诚克制地向林悦道歉。林悦穿灰绿色针织开衫和米白上衣，坐在对面，眼里仍有疲惫，认真听。后方婆婆穿暗红开衫坐在小宇旁边，小宇安静不必笑。暖色顶灯、普通生活感、自然皮肤与衣物褶皱，无文字无水印无额外人物无古装。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic Chinese family drama resolution, 16:9 level medium two-shot over Chen Hao's shoulder, 50mm lens feeling. Same modest apartment at night, warm ceiling light, household ledger open in the center of the wooden table. Chen Hao is unchanged: slim 38-year-old Chinese man, short black hair, ordinary tired face, charcoal work jacket over a dark navy shirt. He sits on the left, moves the black phone aside, places both hands flat on the table and leans forward slightly as he apologizes with restraint. Lin Yue, unchanged in her gray-green cardigan and loosely tied shoulder-length hair, sits opposite, still tired but listening carefully. In the same room behind them, the grandmother in a dark red cardigan sits close to Xiao Yu; the boy is calmer but does not pose or smile. Homework, pencil and bowls remain. Natural unretouched skin, slight fabric wrinkles, candid posture, low-saturation lived-in home, no text, watermark, extra people, glamour lighting or period costume. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧收束段，16:9，陈浩肩后平视50mm夫妻对坐中景。陈浩保持38岁偏瘦普通中国男性、短黑发、炭灰色工作夹克和暗蓝色衬衫，坐在桌左侧，把黑色手机推到一边，双手平放桌面，稍微前倾，真诚但不戏剧化地看着林悦。林悦保持35岁自然面孔、松松束起深色及肩发、灰绿色针织开衫和米白上衣，坐在对面，眼里还有疲惫，认真听。后方同一空间中，婆婆穿暗红开衫坐在小宇旁边，小宇安静些但不必笑。真实皮肤纹理、微小衣物褶皱、未摆拍姿势、低饱和家居，无文字无水印无额外人物。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧，夜晚同一客餐厅，16:9，陈浩肩后平视50mm夫妻对坐中景。木桌中间摊开家庭账本。陈浩穿炭灰工作夹克和暗蓝衬衫，坐桌左侧，把黑色手机推到一边，双手平放桌面，稍微前倾，真诚克制地向林悦道歉。林悦穿灰绿色针织开衫和米白上衣，坐在对面，眼里仍有疲惫，认真听。后方婆婆穿暗红开衫坐在小宇旁边，小宇安静不必笑。暖色顶灯、普通生活感、自然皮肤与衣物褶皱，无文字无水印无额外人物无古装。当前画面只表现陈浩作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic Chinese family drama resolution, 16:9 level medium two-shot over Chen Hao's shoulder, 50mm lens feeling. Same modest apartment at night, warm ceiling light, household ledger open in the center of the wooden table. Chen Hao is unchanged: slim 38-year-old Chinese man, short black hair, ordinary tired face, charcoal work jacket over a dark navy shirt. He sits on the left, moves the black phone aside, places both hands flat on the table and leans forward slightly as he apologizes with restraint. Lin Yue, unchanged in her gray-green cardigan and loosely tied shoulder-length hair, sits opposite, still tired but listening carefully. In the same room behind them, the grandmother in a dark red cardigan sits close to Xiao Yu; the boy is calmer but does not pose or smile. Homework, pencil and bowls remain. Natural unretouched skin, slight fabric wrinkles, candid posture, low-saturation lived-in home, no text, watermark, extra people, glamour lighting or period costume. 陈浩 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "夸张和好，摆拍全家福，大笑，亲吻，豪宅，人物换脸，服装变化，塑料皮肤，字幕，文字，水印，logo，额外人物，古装，畸形手",
           "video_prompt": "陈浩把手机推到一旁，双手落在桌面后轻微前倾；林悦听完后缓慢抬眼。后方婆婆安静陪着小宇。镜头极轻微前推，情绪安静而未完全解决，不切镜，不改变人物和场景。 说话者与台词必须明确：1. 陈浩说：“小悦，对不起。我看到余额少了就慌了，没先问清楚。”；2. 林悦说：“那五千块的事，你也得给我一个交代。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Preserve the approved faces, wardrobe, table and home layout. Chen Hao slides the phone aside, rests both hands on the table and leans forward a little. Lin Yue listens, then slowly raises her eyes. In the background the grandmother sits quietly with Xiao Yu. Very subtle slow push-in, restrained reconciliation, no cut, no new people, no text, subtitles, music or intelligible speech. 说话者与台词必须明确：1. 陈浩说：“小悦，对不起。我看到余额少了就慌了，没先问清楚。”；2. 林悦说：“那五千块的事，你也得给我一个交代。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -827,10 +802,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 陈浩说：“小悦，对不起。我看到余额少了就慌了，没先问清楚。”；2. 林悦说：“那五千块的事，你也得给我一个交代。”。画面当前优先表现陈浩的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger",
-            "prop_black_phone"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本",
             "黑色手机"
@@ -847,11 +819,11 @@
             "po_po"
           ],
           "reference_assets": [
+            "location_plate_apartment_dining_room_night",
             "chen_hao",
             "lin_yue",
             "xiaoyu",
-            "po_po",
-            "location_plate_apartment_dining_room_night"
+            "po_po"
           ],
           "shot_type": "四人围桌中远景",
           "camera_angle": "餐桌斜上方轻微俯视",
@@ -862,9 +834,9 @@
           "dialogue_ids": [
             "d014"
           ],
-          "keyframe_prompt": "写实中国家庭短剧最后关键帧，16:9，餐桌斜上方轻微俯视的35mm四人围桌中远景，避免摆拍全家福。婆婆，62岁陈浩的母亲，黑白相间短发、暗红开衫和深色碎花衬衫，坐在小宇身边，一只手自然指向账本，另一只手靠近孩子。小宇穿浅蓝睡衣，靠近奶奶，神情已平静但不是夸张笑脸。陈浩穿炭灰工作夹克坐左侧，林悦穿灰绿色开衫坐右侧，两人认真看账本和婆婆。保持自然皮肤、年龄纹理、衣物褶皱、普通家庭的细微凌乱、克制非摆拍构图，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "qwen_prompt": "写实中国家庭短剧最后关键帧，夜晚同一客餐厅，16:9，餐桌斜上方轻微俯视35mm四人中远景，不要摆拍全家福。婆婆是陈浩62岁的母亲，黑白相间短发，暗红开衫和深色碎花衬衫，坐在小宇身边，一只手自然指向账本。小宇穿浅蓝睡衣靠近奶奶，已经平静但不夸张笑。陈浩穿炭灰工作夹克坐左侧，林悦穿灰绿色开衫坐右侧，都认真看账本和婆婆。暖色顶灯，真实皮肤与年龄痕迹，衣服褶皱，普通中国家庭，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。",
-          "flux_prompt": "Photorealistic final keyframe for a Chinese family drama, 16:9 gentle high three-quarter medium-wide shot over the wooden dining table, 35mm lens feeling, never a posed family portrait. Same modest city apartment at night under one warm ceiling light. An open household ledger is in the center; black phone rests at one side with an unreadable screen, homework notebook, pencil and ceramic bowls remain. The grandmother, Chen Hao's 62-year-old mother with short salt-and-pepper hair, dark red cardigan and dark floral shirt, sits beside Xiao Yu with one hand naturally pointing at the ledger and the other near him. Xiao Yu in light-blue pajamas leans closer to his grandmother, calmer but not broadly smiling. Chen Hao in his charcoal work jacket sits left and Lin Yue in her gray-green cardigan sits right, both listening and looking toward the ledger. Natural skin and age texture, fabric wrinkles, slightly imperfect lived-in room, restrained unposed emotion, no text, watermark, extra people, glamour lighting or period costume. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text.",
+          "keyframe_prompt": "写实中国家庭短剧最后关键帧，16:9，餐桌斜上方轻微俯视的35mm四人围桌中远景，避免摆拍全家福。婆婆，62岁陈浩的母亲，黑白相间短发、暗红开衫和深色碎花衬衫，坐在小宇身边，一只手自然指向账本，另一只手靠近孩子。小宇穿浅蓝睡衣，靠近奶奶，神情已平静但不是夸张笑脸。陈浩穿炭灰工作夹克坐左侧，林悦穿灰绿色开衫坐右侧，两人认真看账本和婆婆。保持自然皮肤、年龄纹理、衣物褶皱、普通家庭的细微凌乱、克制非摆拍构图，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "qwen_prompt": "写实中国家庭短剧最后关键帧，夜晚同一客餐厅，16:9，餐桌斜上方轻微俯视35mm四人中远景，不要摆拍全家福。婆婆是陈浩62岁的母亲，黑白相间短发，暗红开衫和深色碎花衬衫，坐在小宇身边，一只手自然指向账本。小宇穿浅蓝睡衣靠近奶奶，已经平静但不夸张笑。陈浩穿炭灰工作夹克坐左侧，林悦穿灰绿色开衫坐右侧，都认真看账本和婆婆。暖色顶灯，真实皮肤与年龄痕迹，衣服褶皱，普通中国家庭，无文字无水印无额外人物无古装。当前画面只表现婆婆作为说话者，嘴型自然张开；其他角色保持倾听或反应，不生成字幕和可读文字。 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
+          "flux_prompt": "Photorealistic final keyframe for a Chinese family drama, 16:9 gentle high three-quarter medium-wide shot over the wooden dining table, 35mm lens feeling, never a posed family portrait. Same modest city apartment at night under one warm ceiling light. An open household ledger is in the center; black phone rests at one side with an unreadable screen, homework notebook, pencil and ceramic bowls remain. The grandmother, Chen Hao's 62-year-old mother with short salt-and-pepper hair, dark red cardigan and dark floral shirt, sits beside Xiao Yu with one hand naturally pointing at the ledger and the other near him. Xiao Yu in light-blue pajamas leans closer to his grandmother, calmer but not broadly smiling. Chen Hao in his charcoal work jacket sits left and Lin Yue in her gray-green cardigan sits right, both listening and looking toward the ledger. Natural skin and age texture, fabric wrinkles, slightly imperfect lived-in room, restrained unposed emotion, no text, watermark, extra people, glamour lighting or period costume. 婆婆 is the active speaker with a natural slightly open mouth; the other characters only listen or react; no subtitles or readable text. 参考图绑定顺序固定：@图片1=客餐厅场景；@图片2=陈浩；@图片3=林悦；@图片4=小宇；@图片5=婆婆。关键帧只引用场景和人物参考图，不引用道具参考图。",
           "negative_prompt": "全家福摆拍，夸张笑脸，拥抱，亲吻，豪宅，岳母，人物换脸，服装变化，塑料皮肤，字幕，文字，水印，logo，额外人物，古装，畸形手",
           "video_prompt": "婆婆把账本轻轻转到四人中间，用手指点一下空白页；陈浩和林悦同时看向账本，小宇靠近奶奶后放松肩膀。镜头缓慢后拉，画面保持安静克制，禁止夸张笑或摆拍，不切镜，不新增人物和文字。 说话者与台词必须明确：1. 婆婆说：“钱少了，咱还能挣。人要是耽误了，多少钱都补不回来。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "h3_prompt": "Preserve the exact approved four faces, wardrobes, apartment and tabletop props. The grandmother gently turns the ledger toward the group and points once at a blank area. Chen Hao and Lin Yue both look down at it; Xiao Yu leans closer to his grandmother and relaxes his shoulders. Slow minimal pull-back, quiet natural family drama, no posed smiles, no cuts, no new people, no readable text or subtitles. 说话者与台词必须明确：1. 婆婆说：“钱少了，咱还能挣。人要是耽误了，多少钱都补不回来。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
@@ -883,9 +855,7 @@
           ],
           "dialogue_visual_prompt": "说话者与台词必须明确：1. 婆婆说：“钱少了，咱还能挣。人要是耽误了，多少钱都补不回来。”。画面当前优先表现婆婆的自然说话嘴型和眼神，其余角色不抢话，只做与台词对应的倾听、回避或反应；最终对白以后期音轨为准。",
           "location_reference_asset": "location_plate_apartment_dining_room_night",
-          "prop_reference_assets": [
-            "prop_household_ledger"
-          ],
+          "prop_reference_assets": [],
           "visible_prop_focus": [
             "家庭账本"
           ]
