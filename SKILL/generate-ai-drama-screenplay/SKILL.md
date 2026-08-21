@@ -41,6 +41,7 @@ The screenplay skill does not generate audio, images, or video. It prepares the 
 - Import `examples/<package>.json` through DramaClaw's structured production-package entry.
 - Do not upload a storyboard-only JSON (`ai-drama.storyboard.v1`) through the production-package validator; it intentionally lacks `project`, `episode`, and `scenes`.
 - Keep storyboard diagrams, continuity references, and generated media as separate canvas resources. They are review aids, not replacements for the production package.
+- `assets` entries with `status: "pending_generation"` are production metadata only. They will not display as images until a real asset URL is present or the DramaClaw importer is extended to map location/prop assets to its native scene and prop records.
 - Do not commit `.env`, API keys, or generated files under `outputs/`.
 
 ## References
