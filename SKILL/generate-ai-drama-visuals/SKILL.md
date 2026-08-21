@@ -39,13 +39,13 @@ If a fact is missing, mark it `待确认` or choose a conservative everyday inte
 
 ### 2. Build character references first
 
-Create one reference prompt per visual character before scene prompts. Use a neutral studio background, front view plus three-quarter view, natural expression, ordinary proportions, and the locked wardrobe. Generate multiple candidates, approve one, and keep its asset ID in every later shot.
+Create one character turnaround/reference sheet per visual character before scene prompts. This is an identity asset, not a story frame and not an influencer portrait. Require the same person in four consistent views (front, left three-quarter, right three-quarter, and profile; add a small full-body view when wardrobe or body proportions matter), eye-level 50mm-feeling camera, neutral seamless light-gray background, soft even studio light, and a calm neutral expression. Repeat the locked age, face shape, hairline, hair length, skin texture, body build, wardrobe colors, fabric, seams, and accessories in every view. Explicitly forbid room backgrounds, props, extra people, beauty-editorial retouching, plastic skin, age drift, wardrobe drift, text, logos, and watermarks. Generate multiple candidates, approve one, and keep its asset ID in every later shot. Do not put dialogue, dramatic emotion, or scene action in this reference sheet.
 
 For a narrator or voice-only role, set `visual: false`; do not create a meaningless portrait.
 
 ### 3. Build the location plate
 
-Create a clean location reference without characters. Specify spatial anchors that a camera can preserve: door position, table position, windows, dominant light source, and fixed props. Reuse the same location asset for all shots in that scene.
+Create an empty location/spatial reference plate without characters and without temporary story props. Specify spatial anchors that a camera can preserve: wall and floor materials, door and doorway positions, windows, table/furniture footprint, camera-facing axes, ceiling light, practical light sources, and the amount of lived-in clutter. Use a wide establishing composition and state the aspect ratio. Keep only genuinely fixed architecture or furniture in the plate; phones, notebooks, ledgers, dishes, tools, and other touched objects belong to separate prop references. Reuse the same location asset for all shots in that scene.
 
 Create separate multi-view reference sheets for recurring props that affect continuity: furniture, phones, ledgers, school materials, dishes, tools, or any object touched by a character. Each prop sheet should show the same object in at least six consistent views (front, three-quarter left, three-quarter right, side views, top, and a relevant detail) on a neutral seamless background with uniform studio lighting. Do not place the prop in the story room, on a table, or in a lifestyle scene; the isolated sheet is the identity reference, while the location plate controls the environment. Give each asset a stable ID and attach the location and prop asset IDs to every dependent shot. Do not invent an asset URL; mark an ungenerated reference `pending_generation`.
 

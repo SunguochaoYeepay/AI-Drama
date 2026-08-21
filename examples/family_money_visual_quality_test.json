@@ -37,9 +37,13 @@
         "props": "黑色手机"
       },
       "reference_prompt": {
-        "qwen": "写实中国男性角色定妆参考图，38岁，偏瘦，瘦长脸，短黑发，疲惫但普通的眼神，穿炭灰色工作夹克、暗蓝色衬衫和深色长裤，正面与四分之三侧面双视图，中性浅灰背景，柔和均匀棚拍光，真实皮肤纹理，普通上班族，不是明星脸，无文字无水印无品牌标志",
-        "flux": "Photorealistic Chinese male character reference sheet, 38 years old, slim build, long oval face, short black hair, tired ordinary office-worker expression, charcoal work jacket over a dark navy shirt, dark trousers, front view and three-quarter view, neutral light gray studio background, soft even lighting, natural skin texture, no celebrity look, no text, no watermark, no logos"
+        "qwen": "写实人物定妆参考板，不是剧情画面，不是广告写真；同一个38岁中国男性，偏瘦、中等身高、瘦长脸、短黑发、自然发际线和轻微眼下疲惫感，穿炭灰色旧工作夹克、暗蓝色棉质衬衫、深色长裤，展示正面、左前45度、右前45度、侧面四个一致视角，画面边缘可带一个全身比例小视图；人物保持中性放松表情，眼睛自然看向镜头，普通上班族气质，不是明星脸，保留轻微肤色不均、细小毛孔、发丝碎发、衣料纹理和自然褶皱；中性浅灰无缝背景，眼平视角，约50mm镜头感，柔和均匀棚拍光，四个视角必须是同一张脸、同一发型、同一套衣服和同一身材比例；不要房间、家具、手机、其他人物、戏剧动作、夸张表情、浓妆、磨皮、塑料皮肤、文字、字幕、品牌、logo、水印",
+        "flux": "Photorealistic character turnaround sheet, the same ordinary Chinese man, 38 years old, slim medium-height build, long oval face, short black hair with a natural hairline, subtle tired under-eyes, wearing a worn charcoal work jacket, dark navy cotton shirt and dark trousers. Four consistent views: front, left three-quarter, right three-quarter and profile, with a small full-body proportion view. Neutral relaxed expression, eye-level 50mm-feeling camera, neutral seamless light-gray studio background, soft even studio lighting, natural uneven skin tone, subtle pores, stray hairs, visible fabric weave and believable clothing wrinkles. The face, hairstyle, wardrobe colors, body proportions and age must remain identical in every view. No room, furniture, phone, props, extra people, dramatic action, beauty retouching, plastic skin, text, subtitles, logos or watermark."
       },
+      "reference_views": ["正面", "左前45度", "右前45度", "侧面", "全身比例小视图"],
+      "background": "中性浅灰无缝背景，空白人物定妆摄影棚",
+      "reference_policy": "同一角色四视角锁定脸型、发型、年龄、身材和服装；不得生成剧情场景或生活化背景",
+      "negative_prompt": "房间，家具，手机，道具，其他人物，明星脸，网红写真，浓妆，磨皮，塑料皮肤，年龄漂移，发型改变，服装改变，夸张表情，动作，文字，字幕，logo，水印",
       "negative_constraints": "不要年轻偶像脸，不要西装，不要胡须，不要夸张肌肉，不要笑得灿烂，不要改变发型和服装"
     },
     {
@@ -55,9 +59,13 @@
         "props": "铅笔或作业本"
       },
       "reference_prompt": {
-        "qwen": "写实中国女性角色定妆参考图，35岁，普通城市家庭母亲，深色及肩发松松束起，眼神有表现力，穿灰绿色针织开衫、米白色上衣和深色长裤，正面与四分之三侧面双视图，中性浅灰背景，柔和均匀棚拍光，真实皮肤纹理，无文字无水印无品牌标志",
-        "flux": "Photorealistic Chinese female character reference sheet, 35 years old, ordinary urban mother, dark shoulder-length hair loosely tied back, expressive eyes, gray-green knitted cardigan over an off-white shirt, dark trousers, front view and three-quarter view, neutral light gray studio background, soft even lighting, natural skin texture, no text, no watermark, no logos"
+        "qwen": "写实人物定妆参考板，不是剧情画面，不是广告写真；同一个35岁中国女性，普通城市家庭母亲，深色及肩发松松束起，稳定的发际线和几缕自然碎发，眼神有表现力但表情中性放松，穿灰绿色针织开衫、米白色棉质上衣、深色长裤，展示正面、左前45度、右前45度、侧面四个一致视角，画面边缘可带一个全身比例小视图；保留自然肤色、轻微毛孔、细小法令纹、真实针织纹理和衣物褶皱，眼平视角，约50mm镜头感，中性浅灰无缝背景，柔和均匀棚拍光，四个视角必须是同一张脸、同一发型、同一套衣服和同一身材比例；不要房间、家具、作业本、其他人物、浓妆、职业模特脸、磨皮、塑料皮肤、戏剧动作、文字、字幕、品牌、logo、水印",
+        "flux": "Photorealistic character turnaround sheet, the same ordinary Chinese woman, 35 years old, an urban mother with dark shoulder-length hair loosely tied back, a stable hairline and a few natural flyaway strands. She wears a gray-green knitted cardigan, off-white cotton shirt and dark trousers. Four consistent views: front, left three-quarter, right three-quarter and profile, with a small full-body proportion view. Neutral relaxed expression with expressive eyes, eye-level 50mm-feeling camera, neutral seamless light-gray studio background, soft even studio lighting, natural skin tone, subtle pores, slight nasolabial lines, visible knit texture and believable wrinkles. The face, hair, wardrobe colors, body proportions and age must remain identical in every view. No room, furniture, notebook, extra people, makeup, model face, retouching, plastic skin, dramatic action, text, subtitles, logos or watermark."
       },
+      "reference_views": ["正面", "左前45度", "右前45度", "侧面", "全身比例小视图"],
+      "background": "中性浅灰无缝背景，空白人物定妆摄影棚",
+      "reference_policy": "同一角色四视角锁定脸型、发型、年龄、身材和服装；不得生成剧情场景或生活化背景",
+      "negative_prompt": "房间，家具，作业本，其他人物，职业模特脸，浓妆，磨皮，塑料皮肤，年龄漂移，发型改变，服装改变，夸张表情，动作，文字，字幕，logo，水印",
       "negative_constraints": "不要职业模特脸，不要浓妆，不要长发披肩，不要改变开衫颜色，不要过度悲伤表情"
     },
     {
@@ -73,9 +81,13 @@
         "props": "铅笔和作业本"
       },
       "reference_prompt": {
-        "qwen": "写实中国男孩角色定妆参考图，6岁，短黑发，圆润自然的儿童脸，穿浅蓝色睡衣，正面与四分之三侧面双视图，中性浅灰背景，柔和均匀棚拍光，真实儿童皮肤纹理，无文字无水印",
-        "flux": "Photorealistic Chinese boy character reference sheet, 6 years old, short black hair, natural round child face, light blue pajamas, front view and three-quarter view, neutral light gray studio background, soft even lighting, natural child skin texture, no text, no watermark"
+        "qwen": "写实儿童人物定妆参考板，不是剧情画面，不是卡通海报；同一个6岁中国男孩，短黑发、圆润自然的儿童脸、儿童正常身材比例，穿浅蓝色棉质睡衣，展示正面、左前45度、右前45度、侧面四个一致视角，画面边缘可带一个全身比例小视图；表情中性放松，眼睛自然看向镜头，保留真实儿童皮肤纹理、细小发丝和睡衣缝线，眼平视角，约50mm镜头感，中性浅灰无缝背景，柔和均匀棚拍光，四个视角必须是同一张脸、同一发型、同一套睡衣和同一身材比例；不要房间、餐桌、作业本、成人化五官、卡通风、夸张哭脸、其他人物、文字、字幕、logo、水印",
+        "flux": "Photorealistic child character turnaround sheet, the same ordinary Chinese boy, 6 years old, short black hair, natural round child face and age-appropriate body proportions, wearing light blue cotton pajamas. Four consistent views: front, left three-quarter, right three-quarter and profile, with a small full-body proportion view. Neutral relaxed expression, eye-level 50mm-feeling camera, neutral seamless light-gray studio background, soft even studio lighting, realistic child skin texture, fine hair strands and visible pajama seams. The face, hair, pajamas, body proportions and age must remain identical in every view. No room, dining table, homework, adult facial features, cartoon style, exaggerated crying, extra people, text, subtitles, logos or watermark."
       },
+      "reference_views": ["正面", "左前45度", "右前45度", "侧面", "全身比例小视图"],
+      "background": "中性浅灰无缝背景，空白儿童人物定妆摄影棚",
+      "reference_policy": "同一儿童角色四视角锁定脸型、发型、年龄、身材和睡衣；不得生成剧情场景或生活化背景",
+      "negative_prompt": "房间，餐桌，作业本，成人化五官，卡通，夸张哭脸，其他人物，年龄漂移，发型改变，睡衣改变，文字，字幕，logo，水印",
       "negative_constraints": "不要年龄过大，不要卡通，不要成人化五官，不要校服，不要夸张哭脸"
     },
     {
@@ -91,9 +103,13 @@
         "relationship": "陈浩的母亲，不是林悦的母亲"
       },
       "reference_prompt": {
-        "qwen": "写实中国老年女性角色定妆参考图，62岁，陈浩的母亲、小宇的奶奶，黑白相间短发，慈祥但有主见的普通老人面孔，穿暗红色开衫、深色碎花衬衫和深色长裤，正面与四分之三侧面双视图，中性浅灰背景，柔和均匀棚拍光，真实皮肤纹理，无文字无水印",
-        "flux": "Photorealistic Chinese elderly woman character reference sheet, 62 years old, the husband's mother and the boy's grandmother, short salt-and-pepper hair, kind but firm ordinary elderly face, dark red cardigan over a dark floral shirt, dark trousers, front view and three-quarter view, neutral light gray studio background, soft even lighting, natural skin texture, no text, no watermark"
+        "qwen": "写实老年人物定妆参考板，不是剧情画面，不是贵妇写真；同一个62岁中国女性，陈浩的母亲、小宇的奶奶，普通老人面孔，慈祥但有主见，黑白相间短发、稳定发型和自然发丝，穿暗红色针织开衫、深色碎花衬衫、深色长裤，展示正面、左前45度、右前45度、侧面四个一致视角，画面边缘可带一个全身比例小视图；表情中性放松，保留真实年龄感、轻微眼角细纹、自然皮肤纹理和衣物褶皱，眼平视角，约50mm镜头感，中性浅灰无缝背景，柔和均匀棚拍光，四个视角必须是同一张脸、同一发型、同一套衣服和同一身材比例；不要房间、家具、食物、其他人物、年轻化、古装、贵妇造型、夸张慈祥笑容、磨皮、塑料皮肤、文字、字幕、logo、水印",
+        "flux": "Photorealistic elderly character turnaround sheet, the same ordinary Chinese woman, 62 years old, the husband's mother and the boy's grandmother, kind but firm everyday elderly face, short salt-and-pepper hair with a stable hairstyle and natural strands. She wears a dark red knitted cardigan, dark floral shirt and dark trousers. Four consistent views: front, left three-quarter, right three-quarter and profile, with a small full-body proportion view. Neutral relaxed expression, visible natural age, subtle eye-corner lines, realistic skin texture and believable clothing wrinkles, eye-level 50mm-feeling camera, neutral seamless light-gray studio background, soft even studio lighting. The face, hair, wardrobe colors, body proportions and age must remain identical in every view. No room, furniture, food, extra people, younger appearance, historical costume, wealthy-lady styling, exaggerated grandmother smile, retouching, plastic skin, text, subtitles, logos or watermark."
       },
+      "reference_views": ["正面", "左前45度", "右前45度", "侧面", "全身比例小视图"],
+      "background": "中性浅灰无缝背景，空白人物定妆摄影棚",
+      "reference_policy": "同一角色四视角锁定脸型、发型、年龄、身材和服装；明确是陈浩的母亲而不是林悦的母亲；不得生成剧情场景或生活化背景",
+      "negative_prompt": "房间，家具，食物，其他人物，岳母，年轻化，古装，贵妇造型，夸张笑容，磨皮，塑料皮肤，年龄漂移，发型改变，服装改变，文字，字幕，logo，水印",
       "negative_constraints": "不要写成岳母，不要年轻化，不要白发长发，不要古装，不要贵妇造型，不要夸张慈祥笑容"
     },
     {
@@ -111,9 +127,13 @@
       "time_of_day": "夜",
       "interior_exterior": "内",
       "description": "普通中国城市公寓，客厅和餐厅相连，长期有人居住，陈设实用而略显拥挤。",
-      "continuity_lock": "木质餐桌位于画面中部，入户门在画面左侧，右侧连接卧室，暖色吸顶灯，桌面固定有作业本、铅笔、陶瓷碗、家庭账本和手机。",
-      "qwen_prompt": "写实普通中国城市公寓客餐厅场景参考图，夜晚，客厅和餐厅相连，木质餐桌位于画面中部，入户门在左侧，右侧连接卧室，暖色吸顶灯，桌面有作业本、铅笔、陶瓷碗、家庭账本和手机，长期有人居住，实用而略显拥挤，16:9，无人物，无文字无水印",
-      "flux_prompt": "Photorealistic lived-in Chinese city apartment dining-living room at night, connected living room and dining area, wooden dining table centered, entrance door on the left, bedroom doorway on the right, warm ceiling light, homework notebook, pencils, ceramic bowls, household ledger and phone on the table, practical slightly cramped home, 16:9, empty room, no people, no text, no watermark",
+      "continuity_lock": "木质餐桌位于画面中部，入户门在画面左侧，右侧连接卧室，暖色吸顶灯，客厅与餐厅的门洞、墙面、地面和家具位置保持不变；活动道具由独立参考资产控制。",
+      "qwen_prompt": "写实空间参考板，不是剧情关键帧；夜晚的普通中国城市公寓客餐厅空房间，客厅和餐厅相连，木质餐桌位于画面中部，入户门在画面左侧，右侧连接卧室的门洞，墙面是略有生活痕迹的浅色乳胶漆，地面为普通浅色地砖，餐桌和几把普通椅子的尺寸比例真实，暖色吸顶灯作为主光源，门洞、餐桌、墙角、地面接缝和灯具位置清晰可复用，16:9宽幅、略带广角但不夸张的室内摄影，机位固定在入户门一侧的视线高度；只保留固定建筑和家具，不放手机、账本、作业本、铅笔、碗等活动道具；无人物、无手、无文字、无字幕、无品牌、无logo、无水印，真实居住感但不豪华、不样板间",
+      "flux_prompt": "Photorealistic empty spatial reference plate, an ordinary lived-in Chinese city apartment dining-living room at night. The living room connects to the dining area, with a wooden dining table centered, the entrance door on the left, and a bedroom doorway on the right. Slightly marked light painted walls, ordinary light floor tiles, a modest table and chairs with believable scale, warm ceiling light as the main source. Preserve the doorway, table footprint, wall corners, floor seams and light fixture as reusable spatial anchors. Wide 16:9 interior photograph, eye-level camera near the entrance with a mild natural wide-angle feeling, no distortion. Keep only fixed architecture and furniture; do not add phones, ledgers, notebooks, pencils or bowls. No people, hands, text, subtitles, brands, logos or watermark; practical lived-in home, not luxury and not a showroom.",
+      "reference_views": ["入户门侧宽幅主视图", "餐桌侧空间关系视图", "门洞与墙角细节视图"],
+      "background": "真实但空置的普通中国城市公寓客餐厅，不添加活动道具",
+      "reference_policy": "锁定门、门洞、墙角、地面接缝、餐桌和灯具的空间位置；活动道具必须引用独立 prop_reference 资产",
+      "negative_prompt": "人物，手，手机，账本，作业本，铅笔，陶瓷碗，额外房间，豪华装修，样板间，超宽畸变，文字，字幕，logo，水印",
       "reference_asset_id": "location_plate_apartment_dining_room_night",
       "prop_reference_asset_ids": [
         "prop_wooden_dining_table",
