@@ -16,7 +16,7 @@ Read [realism.md](references/realism.md) before writing prompts. Read [model-pro
 - Use `婆婆` for the husband's mother in the family-money story. Do not replace it with `岳母`.
 - Keep one main visible action per frame. Do not turn a shot into a paragraph of invisible backstory.
 - Write prompts as connected, concrete sentences. State where each character starts, what single action occurs, and where the body/props end; this gives single-image-to-video a usable handoff instead of leaving the model to infer blocking from keywords.
-- If a shot has dialogue, name the speaker and include the exact spoken text in the visual/video prompt. State the speaking order when there are multiple lines, then describe non-speaking characters as listeners or reactors. Do not assume a `dialogue_ids` array will be read by an image/video model.
+- If a shot has dialogue, name the speaker in the video prompt and include the exact spoken text there. State the speaking order when there are multiple lines, then describe non-speaking characters as listeners or reactors. Do not assume a `dialogue_ids` array will be read by an image/video model.
 - Use concrete camera and lighting language instead of abstract praise such as “最好看” or “高级感”.
 - Keep creative freedom in incidental background details, natural lighting variation, and small gestures, not in identity, clothing, geography, or story facts.
 - Do not blindly copy Stable Diffusion weighting syntax such as `(term:1.6)`. Qwen and Flux workflows may treat it as literal text or ignore it.
@@ -62,7 +62,7 @@ Write prompts in this order:
 7. props and spatial continuity;
 8. realism constraints and exclusions.
 
-Add a dialogue block after the action block: `说话者与台词必须明确：林悦说：“……”；陈浩说：“……”；当前画面优先表现说话者的自然嘴型和眼神，其余角色只做反应；最终对白以后期音轨为准。` For a silent shot, explicitly say that there is no dialogue and all characters keep their mouths naturally closed.
+Keep static image prompts and motion prompts separate. `keyframe_prompt`, `qwen_prompt`, and `flux_prompt` are for a single still image: identify the active speaker and use a natural slightly open mouth, but do not include the exact dialogue, speaking order, lip-sync instructions, or a long list of every prop. Mention only the two to four props that are visible and important in this frame; keep other continuity assets attached as references without putting them into the image text. `video_prompt` and `h3_prompt` carry the exact spoken text, speaking order, listener reactions, motion, and lip-sync intent. For a silent shot, static prompts say that mouths are naturally closed and motion prompts say there is no dialogue.
 
 Write a required `visual_description` that states what is visibly in the frame. `action` is supplementary and never replaces `visual_description`.
 
