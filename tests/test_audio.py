@@ -57,6 +57,10 @@ class AudioTests(unittest.TestCase):
 
             self.assertGreater(destination.stat().st_size, 0)
             self.assertGreaterEqual(timeline[1].start_ms - timeline[0].end_ms, 100)
+            self.assertLess(
+                abs(duration_ms(destination) - timeline[-1].end_ms),
+                50,
+            )
             self.assertIn("甲：你好", subtitle.read_text(encoding="utf-8"))
 
     def test_mixes_placed_effect_without_extending_dialogue(self) -> None:

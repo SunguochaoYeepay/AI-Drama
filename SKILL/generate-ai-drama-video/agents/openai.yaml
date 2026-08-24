@@ -1,0 +1,4 @@
+interface:
+  display_name: "AI Drama Video"
+  short_description: "Generate consistent drama keyframes and H3 video shots"
+  default_prompt: "Use $generate-ai-drama-video to turn this drama story and audio into consistent Qwen keyframes and MiniMax H3 video shots."

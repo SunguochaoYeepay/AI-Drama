@@ -1,0 +1,68 @@
+{
+  "title": "family_money_argument",
+  "source_story": "examples/family_money_argument.json",
+  "source_audio": "outputs/family_money_argument/final_mix_v2.mp3",
+  "visual_style": "写实中国家庭短剧，克制自然的表演，真实生活质感，暖色室内顶灯，低饱和服装与家居，不磨皮，不过度电影化",
+  "characters": {
+    "chen_hao": "陈浩，中国男性，38岁，偏瘦，短黑发，疲惫的眼神，穿炭灰色工作夹克和暗蓝色衬衫",
+    "lin_yue": "林月，中国女性，35岁，深色及肩发松松束起，眼神有表现力，穿灰绿色针织开衫和米白色上衣",
+    "xiaoyu": "小宇，中国男孩，6岁，短黑发，穿浅蓝色睡衣",
+    "mother_in_law": "岳母，中国女性，62岁，黑白相间的短发，穿暗红色开衫和深色碎花衬衫"
+  },
+  "location": "夜晚，一套有人长期居住的普通中国城市公寓，客餐厅相连，木质餐桌上有作业本、铅笔、陶瓷碗和家庭账本，暖色顶灯，陈设实用而略显拥挤",
+  "keyframes": [
+    {
+      "id": "character_lineup",
+      "purpose": "确认四名角色的年龄、脸型、发型和服装，作为后续 Qwen Image Edit 的人物参考图",
+      "width": 1344,
+      "height": 768,
+      "seed": 2026081901,
+      "prompt": "写实中国家庭短剧人物定妆照，16:9 横图，全身人物设定图，四个人并排站在干净的中性浅灰背景前，人物之间留出清楚间距，正面略微四分之三角度，柔和均匀棚拍光，无文字无标签。人物必须从左到右依次为：陈浩，中国男性38岁，偏瘦，短黑发，疲惫的眼神，炭灰色工作夹克内穿暗蓝色衬衫；林月，中国女性35岁，深色及肩发松松束起，眼神有表现力，灰绿色针织开衫内穿米白色上衣；小宇，中国男孩6岁，短黑发，浅蓝色睡衣；岳母，中国女性62岁，黑白相间短发，暗红色开衫内穿深色碎花衬衫。四人均为普通中国家庭的自然长相，真实皮肤纹理，身材比例准确，服装低饱和且没有品牌标志，不要明星脸，不要时尚大片，不要夸张表情，不要重复人物，不要多余肢体。"
+    },
+    {
+      "id": "opening_conflict",
+      "purpose": "第一场争执开始，可直接作为 H3 I2VA 的首帧",
+      "width": 1344,
+      "height": 768,
+      "seed": 2026081902,
+      "prompt": "写实中国家庭短剧的一个连续镜头首帧，16:9 横图，夜晚普通中国城市公寓的客餐厅，暖色顶灯，木质餐桌上有摊开的儿童作业本、铅笔、两个陶瓷碗和一部手机。中景偏广角，空间关系清楚。画面左侧门口站着陈浩，中国男性38岁，偏瘦，短黑发，疲惫眼神，穿炭灰色工作夹克和暗蓝色衬衫，刚下班回家，一只手拿着亮屏手机但屏幕内容不可读，表情压着怒气。画面右侧餐桌旁坐着林月，中国女性35岁，深色及肩发松松束起，穿灰绿色针织开衫和米白色上衣，正陪孩子写作业，刚察觉丈夫进门，身体尚未完全转过去。桌边坐着小宇，中国男孩6岁，短黑发，穿浅蓝色睡衣，握着铅笔，紧张地看向父亲。三个人的脸清楚且互不遮挡，普通中国家庭自然长相，真实皮肤纹理，生活化布景，低饱和色彩，克制表演，无字幕无文字无水印，不要摆拍，不要时尚感，不要夸张愤怒，不要多余人物，不要畸形手指。"
+    },
+    {
+      "id": "argument_peak",
+      "purpose": "夫妻冲突升级，孩子夹在中间开始哭",
+      "width": 1344,
+      "height": 768,
+      "seed": 2026081903,
+      "prompt": "写实中国家庭短剧，16:9 横图，同一间夜晚普通中国公寓客餐厅和同一组人物服装。中景，陈浩站在木质餐桌左侧，把亮屏手机压在桌面边缘，身体前倾但没有暴力动作；林月站在桌子右侧，眼里含泪又生气，一只手护在孩子肩后；6岁的小宇坐在两人之间，浅蓝色睡衣，眼泪刚流下来，缩着肩膀。桌面保留作业本、铅笔、陶瓷碗和账本。暖色顶灯，真实生活质感，人物面孔清晰，情绪强但表演克制，无字幕无文字无水印，不要夸张肢体，不要多余人物，不要畸形手指。"
+    },
+    {
+      "id": "mother_intervenes",
+      "purpose": "岳母抱住孩子并制止争吵",
+      "width": 1344,
+      "height": 768,
+      "seed": 2026081904,
+      "prompt": "写实中国家庭短剧，16:9 横图，同一间夜晚普通中国公寓客餐厅。岳母，中国女性62岁，黑白相间短发，暗红色开衫和深色碎花衬衫，刚从右侧卧室快步出来，蹲下把哭泣的6岁男孩小宇搂在怀里。陈浩穿炭灰色工作夹克站在餐桌左后方，握手机的手已经垂下；林月穿灰绿色针织开衫站在右后方，抹去眼泪。木桌上有作业本、铅笔、陶瓷碗和摊开的家庭账本。暖色顶灯，低饱和，真实皮肤和普通家庭陈设，人物空间关系清楚，紧张刚被打断的瞬间，无字幕无文字无水印，不要摆拍，不要多余人物。"
+    },
+    {
+      "id": "reconciliation",
+      "purpose": "真相说开后的结尾画面",
+      "width": 1344,
+      "height": 768,
+      "seed": 2026081905,
+      "prompt": "写实中国家庭短剧结尾，16:9 横图，同一间夜晚普通中国公寓客餐厅。四个人围坐在木质餐桌旁，摊开的家庭账本在画面中心。陈浩仍穿炭灰色工作夹克，低头认真听；林月穿灰绿色针织开衫，眼睛微红，手指指向账本中的一行但文字不可读；岳母穿暗红色开衫，平静解释；6岁的小宇穿浅蓝色睡衣，靠在岳母身边不再哭。人物之间仍有余波但开始理解彼此，不要灿烂笑容。暖色顶灯，真实生活质感，克制自然表演，低饱和，无字幕无文字无水印，不要多余人物，不要畸形手指。"
+    }
+  ],
+  "h3_shots": [
+    {
+      "id": "opening_conflict_test",
+      "keyframe_id": "opening_conflict",
+      "width": 1344,
+      "height": 768,
+      "length": 124,
+      "fps": 24,
+      "steps": 4,
+      "seed": 2026081910,
+      "prompt": "For the target video, at 0.00 seconds into the target video, <Picture 1> (from [Shot 1]) is fully referenced.\n\nintegrated_multimodal_description: [Shot 1] Live-action Chinese family drama, a medium-wide shot preserves the modest apartment dining room, warm overhead lighting, wooden table, homework books, ceramic bowls, and the exact identities, clothing, positions, and spatial relationships of the father, mother, and young boy established in <Picture 1>. The tired father at the doorway takes two restrained steps toward the table and slowly raises the lit phone to chest height, keeping its screen unreadable. The mother pauses over the homework, turns her head and upper body toward him, and her expression tightens as she notices the phone. The boy stops writing, lowers his pencil, and looks cautiously from his mother to his father. The camera pushes in with small amplitude at slow speed while all motion remains natural and subdued. No one speaks and no hard cut occurs.\n\noverall_soundscape: Quiet nighttime apartment room tone continues underneath soft footsteps, a faint jacket rustle, the pencil touching the tabletop, and distant muffled city traffic outside. No intelligible speech and no crying.\n\nnon_diegetic_music: N/A"
+    }
+  ]
+}

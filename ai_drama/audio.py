@@ -43,19 +43,28 @@ def require_ffmpeg() -> None:
 def duration_ms(path: Path) -> int:
     result = _run(
         [
-            "ffprobe",
+            "ffmpeg",
             "-v",
             "error",
-            "-show_entries",
-            "format=duration",
-            "-of",
-            "default=noprint_wrappers=1:nokey=1",
+            "-i",
             str(path),
+            "-map",
+            "0:a:0",
+            "-f",
+            "null",
+            "-",
+            "-progress",
+            "pipe:1",
         ]
     )
     try:
-        return max(1, round(float(result.stdout.strip()) * 1000))
-    except ValueError as exc:
+        decoded_microseconds = max(
+            int(line.split("=", 1)[1])
+            for line in result.stdout.splitlines()
+            if line.startswith("out_time_us=")
+        )
+        return max(1, round(decoded_microseconds / 1000))
+    except (ValueError, IndexError) as exc:
         raise AudioToolError(f"无法读取音频时长: {path}") from exc
 
 
