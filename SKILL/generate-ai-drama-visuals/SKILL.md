@@ -69,7 +69,7 @@ Write a required `visual_description` that states what is visibly in the frame. 
 
 Generate separate `qwen_prompt` and `flux_prompt` fields when both engines may be used. Qwen prompts can remain structured Chinese. Flux prompts should use concrete English photography language and avoid keyword piles.
 
-For adjacent shots, add `continuity_in` and `continuity_out` when the package supports them. `continuity_out` must be copied into the next shot's `continuity_in`. If the next shot uses a new angle, label the transition as a hard cut and preserve the action state; if it continues the same action, use the previous clip's tail frame as the next image input.
+For adjacent shots, add `continuity_in`, `continuity_out`, `transition_mode`, `previous_shot_id`, and `keyframe_generation`. `continuity_out` must be copied into the next shot's `continuity_in`. Default to `tail_frame_continue` and `skip_keyframe_use_previous_video_tail` when camera and composition should remain stable. Use `tail_frame_reframe` and `generate_new_angle_from_previous_video_tail` only for a new narrative focus, a necessary reveal, or a clear action/detail view. In that case the previous video tail is `@图片1`, followed by no more than two identity references; never generate this future keyframe before the predecessor tail frame exists.
 
 ### 5. Add anti-synthetic constraints
 
